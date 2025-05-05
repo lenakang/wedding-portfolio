@@ -1,3 +1,42 @@
 .people {
-    padding: 4rem 1.5rem;
+    padding: 4rem 0;
+
+    &__person {
+        display: flex;
+
+        > div {
+            flex: 1 1 50%;
+        }
+
+        &_img {
+            position: relative;
+            aspect-ratio: 1 / 1;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        &_desc {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 4rem;
+
+            ul {
+                margin: 2rem 0;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    position: relative;
+
+                    &::before {
+                        content: "# ";
+                    }
+                }
+            }
+        }
+    }
 }
