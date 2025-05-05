@@ -26,6 +26,9 @@ export default function AboutSection() {
             {
                 selector: `.${styles.about__bottom} .${styles.about__text2}`,
             },
+            {
+                selector: `.${styles.about__location}`,
+            },
         ];
 
         const tl = gsap.timeline({
@@ -237,6 +240,13 @@ export default function AboutSection() {
                     </svg>
                 </div>
                 <span className={styles.about__text2}>day</span>
+            </div>
+            <div className={styles.about__location}>
+                <span>
+                    더컨벤션 신사
+                    <br /> 4층 그랜드볼룸홀
+                </span>
+                June 28, 2025
             </div>
         </section>
     );

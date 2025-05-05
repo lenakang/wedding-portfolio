@@ -14,7 +14,8 @@
     }
 
     .about__text1,
-    .about__text2 {
+    .about__text2,
+    .about__location {
         opacity: 0;
     }
 
@@ -127,6 +128,20 @@
         opacity: 0;
         transform: translate(100%, 0px) scale(0);
         animation: opacity 1s ease-out forwards;
+    }
+
+    &__location {
+        margin: 5rem 1rem 3rem;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        span {
+            letter-spacing: -1.2px;
+            font-family: "Pretendard";
+            margin-bottom: 1rem;
+        }
     }
 }
 
