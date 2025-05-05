@@ -1,5 +1,5 @@
 import "./page.scss";
-import { About, Hero } from "@/components/sections";
+import { About, Begin, Hero, People } from "@/components/sections";
 
 export default function Home() {
     return (
@@ -11,6 +11,8 @@ export default function Home() {
             </header>
             <Hero />
             <About />
+            <Begin />
+            <People />
         </main>
     );
 }

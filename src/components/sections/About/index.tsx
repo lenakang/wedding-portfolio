@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Typewriter from "@/utils/Typewriter/Typewriter";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger); // ✅ ScrollTrigger 등록 (경고 제거)
 
@@ -41,7 +42,7 @@ export default function AboutSection() {
             },
         });
 
-        const interval = 1; // 1초 간격
+        const interval = 0.8; // 간격
 
         steps.forEach((step, index) => {
             tl.to(
@@ -127,7 +128,9 @@ export default function AboutSection() {
                 <span className={styles.about__text1}>our</span>
                 <br />
                 <span className={styles.about__text2}>
-                    <Typewriter />
+                    <Typewriter
+                        words={["Lovely", "Romantic", "once-in-a-lifetime"]}
+                    />
                 </span>
             </div>
             <div className={styles.about__bottom}>
@@ -239,7 +242,7 @@ export default function AboutSection() {
                         </g>
                     </svg>
                 </div>
-                <span className={styles.about__text2}>day</span>
+                <span className={styles.about__text2}>wedding</span>
             </div>
             <div className={styles.about__location}>
                 <span>
@@ -247,6 +250,9 @@ export default function AboutSection() {
                     <br /> 4층 그랜드볼룸홀
                 </span>
                 June 28, 2025
+                <Link href="#." className="tag underline">
+                    View Details
+                </Link>
             </div>
         </section>
     );

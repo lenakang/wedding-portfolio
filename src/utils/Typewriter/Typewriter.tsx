@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
+interface ITypewriter {
+    words: string[];
+    typingSpeed?: number;
+    displayTime?: number;
+    pauseTime?: number;
+    loop?: boolean;
+}
+
 const Typewriter = ({
-    words = ["wedding", "lovely", "soft, strong, forever"],
+    words,
     typingSpeed = 200,
     displayTime = 2000,
     pauseTime = 500,
     loop = true,
-}) => {
+}: ITypewriter) => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [displayedText, setDisplayedText] = useState("");
     const [isTyping, setIsTyping] = useState(true);
