@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import Popup from "./Popup";
+import { useState } from "react";
 
-export default function index() {
+export default function Index() {
+    const [isOpen, setIsOpen] = useState(false);
+
     const desc1 = ["INFP", "수다쟁이", "웃음이 많음", "크리에이터 드리머"];
     const desc2 = [
         "ISTJ",
@@ -52,8 +58,10 @@ export default function index() {
             </div>
 
             <div className={styles.contact}>
-                <button>연락처 보기</button>
+                <button onClick={() => setIsOpen(true)}>연락처 보기</button>
             </div>
+
+            {isOpen && <Popup setIsOpen={setIsOpen} />}
         </section>
     );
 }
