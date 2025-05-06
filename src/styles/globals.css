@@ -153,13 +153,39 @@ h3 {
     transform: translateY(0);
 }
 
-.read-only-calendar {
-    .rdp-day {
-        pointer-events: none;
-        cursor: default;
-    }
-
-    .rdp-day:hover {
-        background: none;
-    }
+.rdp-months {
+    margin: 0 auto;
+}
+.rdp-month_caption {
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+.rdp-caption_label {
+    font-weight: 400;
+    font-family: "Hanken Grotesk", "Pretendard", sans-serif;
+    font-size: 1.8rem;
+}
+.read-only-calendar .rdp-nav {
+    display: none;
+}
+.read-only-calendar .rdp-day {
+    font-family: "Hanken Grotesk";
+    pointer-events: none;
+    cursor: default;
+}
+.read-only-calendar .rdp-day:hover {
+    background: none;
+}
+.read-only-calendar .rdp-caption {
+    display: none;
+}
+.read-only-calendar .rdp-selected button {
+    border-color: #a77132;
+    font-weight: 400;
+    border-width: 1px;
+    width: 3.2rem;
+    height: 3.2rem;
+}
+.read-only-calendar .rdp-weekday:nth-child(7) {
+    color: #a77132;
 }
