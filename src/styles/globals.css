@@ -66,6 +66,7 @@ h3 {
     font-size: 3.4rem;
     font-weight: 400;
     letter-spacing: -1.2px;
+    text-transform: capitalize;
 }
 
 .tag {
@@ -150,4 +151,15 @@ h3 {
 [data-aos="my-fade-up"].aos-animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+.read-only-calendar {
+    .rdp-day {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .rdp-day:hover {
+        background: none;
+    }
 }
