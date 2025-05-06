@@ -27,9 +27,6 @@ export default function AboutSection() {
             {
                 selector: `.${styles.about__bottom} .${styles.about__text2}`,
             },
-            {
-                selector: `.${styles.about__location}`,
-            },
         ];
 
         const tl = gsap.timeline({
