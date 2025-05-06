@@ -120,7 +120,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .popup-title h6 {
@@ -139,4 +139,15 @@ h3 {
     text-transform: uppercase;
     border: none;
     opacity: 0.9;
+}
+
+[data-aos="my-fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+[data-aos="my-fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
 }

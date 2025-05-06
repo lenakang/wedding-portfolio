@@ -105,7 +105,8 @@
     }
 
     &_title {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
     }
     &_name {
         font-size: 1.8rem;
@@ -115,8 +116,7 @@
     a {
         display: flex;
         align-items: center;
-        justify-content: center;
-        border: 1px solid var(--foreground);
+        // border: 1px solid var(--foreground);
         border-radius: 3px;
         margin-top: 1rem;
     }

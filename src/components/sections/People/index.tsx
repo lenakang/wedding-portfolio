@@ -23,11 +23,14 @@ export default function Index() {
                     <Image src="/bride.jpg" fill alt="bride" />
                 </div>
                 <div className={styles.people__person_desc}>
-                    <div className={styles.people__person_inner}>
+                    <div
+                        className={styles.people__person_inner}
+                        data-aos="my-fade-up"
+                    >
                         <div className={styles.people__person_desc_name}>
                             신부 <span>강나래</span>
                         </div>
-                        <div> 1992, 프론트엔드 개발자</div>
+                        <div>1992, 프론트엔드 개발자</div>
                         <ul>
                             {desc1.map((word, i) => (
                                 <li key={i}>{word}</li>
@@ -42,11 +45,14 @@ export default function Index() {
                     <Image src="/groom.jpg" fill alt="groom" />
                 </div>
                 <div className={styles.people__person_desc}>
-                    <div className={styles.people__person_inner}>
+                    <div
+                        className={styles.people__person_inner}
+                        data-aos="my-fade-up"
+                    >
                         <div className={styles.people__person_desc_name}>
                             신랑 <span>위대승</span>
                         </div>
-                        <div> 1989, 반도체 연구원</div>
+                        <div>1989, 반도체 연구원</div>
                         <ul>
                             {desc2.map((word, i) => (
                                 <li key={i}>{word}</li>
@@ -57,7 +63,7 @@ export default function Index() {
                 </div>
             </div>
 
-            <div className={styles.contact}>
+            <div className={styles.contact} data-aos="my-fade-up">
                 <button onClick={() => setIsOpen(true)}>연락처 보기</button>
             </div>
 

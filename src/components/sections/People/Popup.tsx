@@ -1,60 +1,66 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import styles from "./styles.module.scss";
+import { contactList } from "@/data/contactList";
 
 interface PopupProps {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Popup({ setIsOpen }: PopupProps) {
-    const list = [
-        {
-            title: "신랑",
-            name: "위대승",
-            number: process.env.NEXT_PUBLIC_GROOM_PHONE,
-        },
-        {
-            title: "신부",
-            name: "강나래",
-            number: process.env.NEXT_PUBLIC_BRIDE_PHONE,
-        },
+    const contentRef = useRef<HTMLDivElement>(null);
+    const backdropRef = useRef<HTMLDivElement>(null);
 
-        {
-            title: "신랑 아버지",
-            name: "위재민",
-            number: process.env.NEXT_PUBLIC_GROOM_DAD_PHONE,
-        },
-        {
-            title: "신부 아버지",
-            name: "강인용",
-            number: process.env.NEXT_PUBLIC_BRIDE_DAD_PHONE,
-        },
+    // 등장 애니메이션
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.fromTo(
+            backdropRef.current,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.3, ease: "power2.out" }
+        ).fromTo(
+            contentRef.current,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            "<" // 동시에 시작
+        );
+    }, []);
 
-        {
-            title: "신랑 어머니",
-            name: "하선영",
-            number: process.env.NEXT_PUBLIC_GROOM_MOM_PHONE,
-        },
-        {
-            title: "신부 어머니",
-            name: "오미경",
-            number: process.env.NEXT_PUBLIC_BRIDE_MOM_PHONE,
-        },
-    ];
+    const handleClose = () => {
+        const tl = gsap.timeline({
+            onComplete: () => setIsOpen(false),
+        });
+        tl.to(contentRef.current, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+        }).to(
+            backdropRef.current,
+            {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.in",
+            },
+            "<" // 동시에
+        );
+    };
 
     return (
-        <div className="popup-backdrop" onClick={() => setIsOpen(false)}>
-            <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+        <div className="popup-backdrop" ref={backdropRef} onClick={handleClose}>
+            <div
+                className="popup-content"
+                ref={contentRef}
+                onClick={(e) => e.stopPropagation()}
+            >
                 <div className="popup-title">
                     <h6>CONTACT</h6>
-                    <button
-                        className="popup-close"
-                        onClick={() => setIsOpen(false)}
-                    >
+                    <button className="popup-close" onClick={handleClose}>
                         x
                     </button>
                 </div>
 
                 <ul className={styles.contact}>
-                    {list.map((person) => (
+                    {contactList.map((person) => (
                         <li key={person.name}>
                             <span className={styles.contact_title}>
                                 {person.title}
