@@ -244,11 +244,10 @@ export default function AboutSection() {
             <div>
                 <div className={styles.about__location}>
                     <div data-aos="my-fade-up">
-                        <span>
-                            더컨벤션 신사
-                            <br /> 4층 그랜드볼룸홀
-                        </span>
-                        June 28, 2025
+                        더컨벤션 신사
+                        <br /> 4층 그랜드볼룸홀
+                        <br />
+                        <span>2025년 6월 28일 11시</span>
                     </div>
 
                     <Link

@@ -8,8 +8,15 @@ import { useState } from "react";
 export default function Index() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const desc1 = ["INFP", "수다쟁이", "웃음이 많음", "크리에이터 드리머"];
+    const desc1 = [
+        "1992",
+        "INFP",
+        "수다쟁이",
+        "웃음이 많음",
+        "크리에이터 드리머",
+    ];
     const desc2 = [
+        "1989",
         "ISTJ",
         "최선을 다해 쉬자",
         "잘 들어주는 사람",
@@ -30,7 +37,6 @@ export default function Index() {
                         <div className={styles.people__person_desc_name}>
                             신부 <span>강나래</span>
                         </div>
-                        <div>1992, 프론트엔드 개발자</div>
                         <ul>
                             {desc1.map((word, i) => (
                                 <li key={i}>{word}</li>
@@ -52,7 +58,6 @@ export default function Index() {
                         <div className={styles.people__person_desc_name}>
                             신랑 <span>위대승</span>
                         </div>
-                        <div>1989, 반도체 연구원</div>
                         <ul>
                             {desc2.map((word, i) => (
                                 <li key={i}>{word}</li>
