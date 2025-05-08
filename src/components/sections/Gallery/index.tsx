@@ -5,7 +5,7 @@ import "./style.scss";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const images = ["/img3_m.jpg", "/img2_m.jpg", "/img1_m.jpg"];
+const images = ["/img_DM.jpg", "/img2_m.jpg"];
 
 export default function MyGallery() {
     return (
