@@ -8,7 +8,7 @@ import {
     About,
     Begin,
     Hero,
-    Information,
+    Calendar,
     People,
     Gallery,
 } from "@/components/sections";
@@ -32,7 +32,7 @@ export default function Home() {
             <About />
             <Begin />
             <People />
-            <Information />
+            <Calendar />
             <Gallery />
         </main>
     );

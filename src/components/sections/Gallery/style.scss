@@ -1,0 +1,77 @@
+.gallery {
+    text-align: center;
+    padding: 6rem 0;
+
+    h3 {
+        padding: 0 1.5rem;
+        margin: 1rem 0 2rem;
+    }
+    p {
+        padding-bottom: 4rem;
+        font-family: "Hanken Grotesk";
+        font-size: 1.4rem;
+    }
+
+    &__inner {
+        display: flex;
+
+        .swiper {
+            width: calc(100% - 35px);
+            padding-left: 1.5rem;
+        }
+
+        .swiper-wrapper {
+            .img {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 0.95238;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+
+        &_pagination {
+            width: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            button {
+                font-family: "Pretendard", sans-serif;
+                font-weight: 400;
+                font-size: 1rem;
+                -webkit-font-smoothing: antialiased; // 부드럽고 얇게 렌더링
+                color: var(--foreground);
+                letter-spacing: 0.2rem;
+                margin: 2rem auto;
+                border: none;
+                background-color: inherit;
+                font-family: "Hanken Grotesk";
+                font-weight: 600;
+
+                &::before {
+                    content: "0";
+                    font-family: "Hanken Grotesk";
+                }
+            }
+
+            .swiper-pagination-bullet-active {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--foreground);
+                    opacity: 0.8;
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
