@@ -1,19 +1,35 @@
 "use client";
 
-import { ko } from "date-fns/locale";
+import { useEffect, useMemo, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import styles from "./styles.module.scss";
-import "react-day-picker/dist/style.css";
+import { ko } from "date-fns/locale";
 import useCountdown from "@/utils/useCountdown";
+import "react-day-picker/dist/style.css";
+import styles from "./styles.module.scss";
 
-export default function Index() {
-    const selectedDate = new Date(2025, 5, 28);
-    const selectedMonth = selectedDate.toLocaleString("ko-KR", {
-        month: "long",
-    });
-    selectedDate.setHours(0, 0, 0, 0);
+export default function CountdownBlock() {
+    // 날짜 고정
+    const targetDate = useMemo(() => {
+        const d = new Date(2025, 5, 28);
+        d.setHours(0, 0, 0, 0);
+        return d;
+    }, []);
 
-    const { days, hours, minutes, seconds } = useCountdown(selectedDate);
+    // 클라이언트 전용 렌더링 플래그
+    const [isClient, setIsClient] = useState(false);
+    const [selectedMonth, setSelectedMonth] = useState("");
+
+    useEffect(() => {
+        setIsClient(true);
+        // 날짜 포맷도 클라이언트에서만 계산
+        const label = targetDate.toLocaleString("ko-KR", { month: "long" });
+        setSelectedMonth(label);
+    }, [targetDate]);
+
+    // 날짜 계산 (조건문 밖에서 호출해야 함)
+    const { days, hours, minutes, seconds } = useCountdown(targetDate);
+
+    if (!isClient) return null;
 
     return (
         <div className={styles.information}>
@@ -22,8 +38,8 @@ export default function Index() {
             <DayPicker
                 locale={ko}
                 mode="single"
-                selected={selectedDate}
-                defaultMonth={selectedDate}
+                selected={targetDate}
+                defaultMonth={targetDate}
                 disableNavigation
                 showOutsideDays={false}
                 className="read-only-calendar"
@@ -32,11 +48,10 @@ export default function Index() {
             />
 
             <div className={styles.DDay} data-aos="my-fade-up">
-                D-Day
-                <span> : </span>
+                D-Day <span> : </span>
                 <span className="underline">{days}일</span>{" "}
-                <span>{hours}분</span>
-                <span>{minutes}시</span> <span>{seconds}초</span>
+                <span>{hours}시간</span> <span>{minutes}분</span>{" "}
+                <span>{seconds}초</span>
             </div>
         </div>
     );

@@ -4,7 +4,14 @@ import "aos/dist/aos.css";
 import "./page.scss";
 import AOS from "aos";
 import { useEffect } from "react";
-import { About, Begin, Hero, Information, People } from "@/components/sections";
+import {
+    About,
+    Begin,
+    Hero,
+    Information,
+    People,
+    Gallery,
+} from "@/components/sections";
 
 export default function Home() {
     useEffect(() => {
@@ -26,6 +33,7 @@ export default function Home() {
             <Begin />
             <People />
             <Information />
+            <Gallery />
         </main>
     );
 }
