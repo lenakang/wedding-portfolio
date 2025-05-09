@@ -5,12 +5,12 @@
     --foreground: #443017;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background: #443017;
         --foreground: #f0eee2;
     }
-}
+} */
 
 html {
     font-size: 62.5%;
