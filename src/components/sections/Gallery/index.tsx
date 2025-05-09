@@ -4,16 +4,23 @@ import Image from "next/image";
 import "./style.scss";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import Link from "next/link";
 
 const images = ["/img_DM.jpg", "/img2_m.jpg"];
 
 export default function MyGallery() {
     return (
         <div className="gallery">
-            <span className="tag">past and present</span>
-            <h3>Gallery</h3>
-            <p>Just a few moments from when it all was still ahead.</p>
-            <div className="gallery__inner">
+            <span className="tag" data-aos="my-fade-up">
+                past and present
+            </span>
+            <h3 data-aos="my-fade-up">Gallery</h3>
+            <p data-aos="my-fade-up">
+                This section traces the journey of the bride and groom— from
+                their early years to the days leading up to their wedding.
+                <span>1990년대, 신랑과 신부의 어린 시절 모습</span>
+            </p>
+            <div className="gallery__inner" data-aos="my-fade-up">
                 <Swiper
                     className="gallery__inner_swiper"
                     modules={[EffectFade, Pagination, Autoplay]}
@@ -48,6 +55,33 @@ export default function MyGallery() {
                 </Swiper>
 
                 <div className="gallery__inner_pagination" />
+            </div>
+            <div className="gallery__present" data-aos="my-fade-up">
+                <p>
+                    The present /{" "}
+                    <Link href="#" className="underline">
+                        see all
+                    </Link>
+                </p>
+                <span className="name">Narae & Daeseung</span>
+                <Swiper
+                    className="gallery__present_swiper"
+                    modules={[EffectFade, Pagination, Autoplay]}
+                    effect="fade"
+                    fadeEffect={{ crossFade: false }}
+                    slidesPerView={1}
+                    allowTouchMove={false}
+                    autoplay={{
+                        delay: 1000,
+                        disableOnInteraction: false,
+                    }}
+                >
+                    <SwiperSlide key="1">
+                        <div className="img">
+                            <Image src={"/hero_1.jpg"} alt={`aa`} fill />
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </div>
     );
