@@ -3,20 +3,39 @@
 import "./styles.scss";
 
 export default function Index() {
-    const handleClick = () => {
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const lat = 37.519518;
+    const lng = 127.020056;
+    const name = "신사스퀘어";
 
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    const openLink = (url: string, label: string) => {
         if (!isMobile) {
-            alert("티맵 길찾기는 모바일 기기에서만 실행됩니다.");
+            alert(`${label} 길찾기는 모바일 기기에서만 실행됩니다.`);
             return;
         }
+        window.location.href = url;
+    };
 
-        const goalX = 127.020056;
-        const goalY = 37.519518;
-        const goalName = encodeURIComponent("신사스퀘어");
+    const handleTmap = () => {
+        const url = `tmap://route?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(
+            name
+        )}`;
+        openLink(url, "티맵");
+    };
 
-        const tmapUrl = `tmap://route?goalx=${goalX}&goaly=${goalY}&goalname=${goalName}`;
-        window.location.href = tmapUrl;
+    const handleKakao = () => {
+        const url = `kakaonavi://navigate?name=${encodeURIComponent(
+            name
+        )}&x=${lng}&y=${lat}&coord_type=wgs84`;
+        openLink(url, "카카오내비");
+    };
+
+    const handleNaver = () => {
+        const url = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
+            name
+        )}&appname=com.example.app`;
+        openLink(url, "네이버지도");
     };
 
     return (
@@ -46,7 +65,11 @@ export default function Index() {
                     전화하기
                 </a>
 
-                <button onClick={handleClick}>티맵으로 길찾기</button>
+                <div className="navigators">
+                    <button onClick={handleTmap}>티맵으로 길찾기</button>
+                    <button onClick={handleKakao}>카카오내비로 길찾기</button>
+                    <button onClick={handleNaver}>네이버지도 길찾기</button>
+                </div>
             </div>
         </div>
     );
