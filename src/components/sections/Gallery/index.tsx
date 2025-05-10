@@ -7,12 +7,7 @@ import "swiper/css/effect-fade";
 import Link from "next/link";
 
 const images = ["/img_DM.jpg", "/img2_m.jpg"];
-const images2 = [
-    "/gallery_more_2.jpg",
-    "/gallery_more_1.jpg",
-    "/gallery_more_3.jpg",
-];
-// const images2 = [1, 2, 3, 4, 5].map((each) => `/gallery_main_${each}.jpg`);
+const images2 = [1, 2].map((each) => `/gallery_more_${each}.jpg`);
 
 export default function MyGallery() {
     return (
@@ -86,7 +81,6 @@ export default function MyGallery() {
                     {images2.map((src, idx) => (
                         <SwiperSlide key={`slide-${idx}`}>
                             <div className="img">
-                                <h1>{idx}</h1>
                                 <Image
                                     src={src}
                                     alt={`Slide ${idx + 1}`}
