@@ -1,15 +1,29 @@
+import { useState } from "react";
 import "./styles.scss";
 
-export default function index() {
-    const handleTmapNavigation = () => {
-        const startX = 127.027621; // 출발지 경도
-        const startY = 37.497942; // 출발지 위도
-        const endX = 127.035919; // 도착지 경도
-        const endY = 37.511682; // 도착지 위도
-        const endName = encodeURIComponent("강남역");
+interface TmapRouteResult {
+    features: {
+        geometry: { coordinates: number[][] };
+        properties: { name: string };
+    }[];
+}
 
-        const url = `tmap://route?startx=${startX}&starty=${startY}&endx=${endX}&endy=${endY}&endname=${endName}&appKey=당신의_APP_KEY`;
-        window.location.href = url;
+export default function Index() {
+    const [result, setResult] = useState<TmapRouteResult | null>(null);
+
+    const handleClick = async () => {
+        const endX = 127.020056;
+        const endY = 37.519518;
+        const endName = "신사스퀘어";
+
+        const res = await fetch(
+            `/api/tmap-route?endX=${endX}&endY=${endY}&endName=${encodeURIComponent(
+                endName
+            )}`
+        );
+
+        const data = await res.json();
+        setResult(data);
     };
 
     return (
@@ -39,7 +53,19 @@ export default function index() {
                     전화하기
                 </a>
 
-                <button onClick={handleTmapNavigation}>티맵으로 길찾기</button>
+                <button onClick={handleClick}>티맵으로 길찾기</button>
+
+                {result && (
+                    <pre
+                        style={{
+                            marginTop: "1rem",
+                            background: "#f0f0f0",
+                            padding: "1rem",
+                        }}
+                    >
+                        {JSON.stringify(result, null, 2)}
+                    </pre>
+                )}
             </div>
         </div>
     );
