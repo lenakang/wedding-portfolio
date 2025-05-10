@@ -1,0 +1,44 @@
+.gallery_more {
+    position: relative;
+    min-height: 100svh;
+    background-color: var(--background);
+    padding: 1.5rem;
+    padding-top: 6rem;
+
+    &__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6rem;
+        background-color: var(--background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                width: 3rem;
+                height: auto;
+                display: block;
+            }
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    &__inner {
+        img {
+            width: 100%;
+        }
+    }
+}

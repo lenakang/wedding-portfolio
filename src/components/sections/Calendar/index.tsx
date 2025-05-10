@@ -32,7 +32,7 @@ export default function CountdownBlock() {
     if (!isClient) return null;
 
     return (
-        <div className={styles.information}>
+        <div className={styles.calendar}>
             <h3 data-aos="my-fade-up">calendar</h3>
 
             <DayPicker

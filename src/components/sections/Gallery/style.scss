@@ -98,8 +98,36 @@
             margin-bottom: 2rem;
         }
 
-        .name {
-            font-size: 2.4rem;
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .name {
+                font-size: 2.4rem;
+            }
+            .controls {
+                display: flex;
+
+                button {
+                    border: none;
+                    background-color: none;
+                    width: 4rem;
+                    height: 1.6rem;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center center;
+                    background-color: transparent;
+
+                    &.prev {
+                        background-image: url("/btn-prev.png");
+                    }
+                    &.next {
+                        background-image: url("/btn-next.png");
+                        margin-left: 1rem;
+                    }
+                }
+            }
         }
 
         .swiper-wrapper {
