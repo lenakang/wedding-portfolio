@@ -25,27 +25,27 @@ export default function Index() {
     };
 
     const handleKakao = () => {
-        const name = "신사스퀘어";
-        const x = "127.020056"; // 반드시 문자열로!
-        const y = "37.519518"; // 반드시 문자열로!
-        const isMobile = /iPhone|Android/i.test(navigator.userAgent);
-
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
         if (!isMobile) {
             alert("카카오내비는 모바일 기기에서만 실행됩니다.");
             return;
         }
 
-        const url = `kakaonavi://navigate?name=${encodeURIComponent(
-            name
-        )}&x=${x}&y=${y}&coord_type=wgs84`;
+        const place = "서울 강남구 신사동 504-11";
+        const x = "127.0191416";
+        const y = "37.5194624";
 
-        // fallback (앱 미설치 시)
-        setTimeout(() => {
-            window.location.href =
-                "https://play.google.com/store/apps/details?id=com.locnall.KimGiSa";
-        }, 1500);
+        const url = `kakaonavi://navigate?name=${encodeURIComponent(
+            place
+        )}&x=${x}&y=${y}&coord_type=wgs84`;
+        const fallback =
+            "https://play.google.com/store/apps/details?id=com.locnall.KimGiSa";
 
         window.location.href = url;
+
+        setTimeout(() => {
+            window.location.href = fallback;
+        }, 1500);
     };
 
     const handleNaver = () => {
