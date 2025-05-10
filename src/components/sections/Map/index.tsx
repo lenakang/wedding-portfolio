@@ -1,29 +1,15 @@
-import { useState } from "react";
 import "./styles.scss";
 
-interface TmapRouteResult {
-    features: {
-        geometry: { coordinates: number[][] };
-        properties: { name: string };
-    }[];
-}
-
 export default function Index() {
-    const [result, setResult] = useState<TmapRouteResult | null>(null);
-
-    const handleClick = async () => {
+    const handleClick = () => {
+        const appKey = process.env.NEXT_PUBLIC_TMAP_NAVIGATION_KEY;
         const endX = 127.020056;
         const endY = 37.519518;
-        const endName = "신사스퀘어";
+        const endName = encodeURIComponent("신사스퀘어");
 
-        const res = await fetch(
-            `/api/tmap-route?endX=${endX}&endY=${endY}&endName=${encodeURIComponent(
-                endName
-            )}`
-        );
+        const url = `tmap://route?endx=${endX}&endy=${endY}&endname=${endName}&appKey=${appKey}&reqCoordType=WGS84GEO&routeInfo=true`;
 
-        const data = await res.json();
-        setResult(data);
+        window.location.href = url;
     };
 
     return (
