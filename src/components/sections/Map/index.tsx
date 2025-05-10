@@ -25,7 +25,7 @@ export default function Index() {
     };
 
     const handleKakao = () => {
-        const url = `kakaonavi://navigate?name=${encodeURIComponent(
+        const url = `https://kakaonavi.kakao.com/launch?name=${encodeURIComponent(
             name
         )}&x=${lng}&y=${lat}&coord_type=wgs84`;
         openLink(url, "카카오내비");
