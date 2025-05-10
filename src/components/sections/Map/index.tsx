@@ -26,12 +26,12 @@ export default function Index() {
 
     const handleKakao = () => {
         const name = "신사스퀘어";
-        const x = 127.020056;
-        const y = 37.519518;
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const x = "127.020056"; // 반드시 문자열로!
+        const y = "37.519518"; // 반드시 문자열로!
+        const isMobile = /iPhone|Android/i.test(navigator.userAgent);
 
         if (!isMobile) {
-            alert("카카오내비는 모바일 기기에서만 사용 가능합니다.");
+            alert("카카오내비는 모바일 기기에서만 실행됩니다.");
             return;
         }
 
@@ -39,13 +39,13 @@ export default function Index() {
             name
         )}&x=${x}&y=${y}&coord_type=wgs84`;
 
-        // 앱 없을 경우 대비 fallback
-        const fallback = `https://play.google.com/store/apps/details?id=com.locnall.KimGiSa`;
+        // fallback (앱 미설치 시)
+        setTimeout(() => {
+            window.location.href =
+                "https://play.google.com/store/apps/details?id=com.locnall.KimGiSa";
+        }, 1500);
 
         window.location.href = url;
-        setTimeout(() => {
-            window.location.href = fallback;
-        }, 1500);
     };
 
     const handleNaver = () => {
