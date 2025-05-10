@@ -6,7 +6,7 @@ import AOS from "aos";
 import { useEffect } from "react";
 import {
     About,
-    Begin,
+    Invite,
     Hero,
     Calendar,
     People,
@@ -30,7 +30,7 @@ export default function Home() {
             </header>
             <Hero />
             <About />
-            <Begin />
+            <Invite />
             <People />
             <Calendar />
             <Gallery />
