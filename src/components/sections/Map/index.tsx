@@ -40,18 +40,6 @@ export default function Index() {
                 </a>
 
                 <button onClick={handleClick}>티맵으로 길찾기</button>
-
-                {result && (
-                    <pre
-                        style={{
-                            marginTop: "1rem",
-                            background: "#f0f0f0",
-                            padding: "1rem",
-                        }}
-                    >
-                        {JSON.stringify(result, null, 2)}
-                    </pre>
-                )}
             </div>
         </div>
     );
