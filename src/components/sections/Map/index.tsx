@@ -25,10 +25,27 @@ export default function Index() {
     };
 
     const handleKakao = () => {
-        const url = `https://kakaonavi.kakao.com/launch?name=${encodeURIComponent(
+        const name = "신사스퀘어";
+        const x = 127.020056;
+        const y = 37.519518;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+            alert("카카오내비는 모바일 기기에서만 사용 가능합니다.");
+            return;
+        }
+
+        const url = `kakaonavi://navigate?name=${encodeURIComponent(
             name
-        )}&x=${lng}&y=${lat}&coord_type=wgs84`;
-        openLink(url, "카카오내비");
+        )}&x=${x}&y=${y}&coord_type=wgs84`;
+
+        // 앱 없을 경우 대비 fallback
+        const fallback = `https://play.google.com/store/apps/details?id=com.locnall.KimGiSa`;
+
+        window.location.href = url;
+        setTimeout(() => {
+            window.location.href = fallback;
+        }, 1500);
     };
 
     const handleNaver = () => {
