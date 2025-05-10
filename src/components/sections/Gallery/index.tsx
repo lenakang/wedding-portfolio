@@ -17,11 +17,15 @@ export default function MyGallery() {
                 beginnings.
             </p>
             <Swiper1 />
-            <div className="gallery__present" data-aos="my-fade-up">
+            <div
+                id="gallery"
+                className="gallery__present"
+                data-aos="my-fade-up"
+            >
                 <p>
                     The present /{" "}
                     <Link href="/gallery" className="underline">
-                        see all
+                        see more
                     </Link>
                 </p>
                 <div className="gallery__present__title">

@@ -10,7 +10,7 @@ export default function page() {
     return (
         <div className="gallery_more">
             <h3 className="gallery_more__nav">
-                <Link href="/">
+                <Link href="/#gallery">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -40,7 +40,6 @@ export default function page() {
                             width: "100%",
                             height: "auto",
                         }}
-                        loading="lazy"
                     />
                 ))}
             </div>

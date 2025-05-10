@@ -1,5 +1,5 @@
 .people {
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
 
     &__person {
         display: flex;
@@ -10,7 +10,7 @@
 
         &_img {
             position: relative;
-            aspect-ratio: 2 / 3;
+            aspect-ratio: 3/4;
 
             img {
                 object-fit: cover;
@@ -30,9 +30,10 @@
 
             &_name {
                 line-height: 1.4;
+                font-size: 1.2rem;
 
                 span {
-                    font-size: 2.2rem;
+                    font-size: 2rem;
                 }
 
                 svg {
@@ -47,7 +48,7 @@
 
                 li {
                     position: relative;
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
 
                     &::before {
                         content: "# ";
