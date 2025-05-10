@@ -11,6 +11,7 @@ import {
     Calendar,
     People,
     Gallery,
+    Map,
 } from "@/components/sections";
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
             <People />
             <Calendar />
             <Gallery />
+            <Map />
         </main>
     );
 }

@@ -1,0 +1,40 @@
+.map {
+    padding: 5rem 1.5rem;
+    background-color: #ede8d6;
+    text-align: center;
+
+    h3 {
+        font-size: 3rem;
+    }
+    .info {
+        margin: 3rem auto;
+        font-family: "Hanken Grotesk", "Pretendard", sans-serif;
+
+        h4 {
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 2;
+
+            span {
+                display: block;
+                font-size: 1.6rem;
+                font-weight: 400;
+            }
+        }
+
+        p {
+            margin-top: 2rem;
+
+            svg {
+                width: 1.6rem;
+                margin-right: 0.5rem;
+                color: var(--foreground);
+            }
+        }
+
+        a {
+            font-size: 1.4rem;
+            margin-top: 1rem;
+        }
+    }
+}

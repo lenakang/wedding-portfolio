@@ -4,3 +4,4 @@ export { default as Invite } from "./Invite";
 export { default as People } from "./People";
 export { default as Calendar } from "./Calendar";
 export { default as Gallery } from "./Gallery";
+export { default as Map } from "./Map";
