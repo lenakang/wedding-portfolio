@@ -4,29 +4,19 @@ import "./styles.scss";
 
 export default function Index() {
     const handleClick = () => {
-        const isMobile =
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                navigator.userAgent
-            );
-        const appKey = process.env.NEXT_PUBLIC_TMAP_API_KEY;
-        const endX = 127.020056;
-        const endY = 37.519518;
-        const endName = encodeURIComponent("신사스퀘어");
-
-        if (!appKey) {
-            alert("Tmap API 키가 설정되지 않았습니다.");
-            return;
-        }
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         if (!isMobile) {
-            console.log("PC에서 실행됨");
-            alert("티맵 길찾기는 모바일에서만 실행됩니다.");
+            alert("티맵 길찾기는 모바일 기기에서만 실행됩니다.");
             return;
         }
 
-        const url = `tmap://route?endx=${endX}&endy=${endY}&endname=${endName}&appKey=${appKey}&reqCoordType=WGS84GEO&routeInfo=true`;
+        const goalX = 127.020056;
+        const goalY = 37.519518;
+        const goalName = encodeURIComponent("신사스퀘어");
 
-        window.location.href = url;
+        const tmapUrl = `tmap://route?goalx=${goalX}&goaly=${goalY}&goalname=${goalName}`;
+        window.location.href = tmapUrl;
     };
 
     return (
