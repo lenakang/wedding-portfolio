@@ -10,6 +10,8 @@ export default async function handler(
         return res.status(500).json({ error: "API Key is missing" });
     }
 
+    console.log("Query Params:", req.query);
+
     const { endX, endY, endName } = req.query;
 
     const url = `https://apis.openapi.sk.com/tmap/routes?version=1&endX=${endX}&endY=${endY}&endName=${endName}`;
