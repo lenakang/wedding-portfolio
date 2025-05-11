@@ -19,12 +19,17 @@ export default function DestinationNavigator({
         if (!isMobile || linkOpened) return;
 
         linkOpened = true;
+
+        const now = Date.now();
         window.location.href = appUrl;
 
         setTimeout(() => {
-            window.location.href = fallbackUrl;
+            const elapsed = Date.now() - now;
+            if (document.visibilityState === "visible" && elapsed < 1500) {
+                window.location.href = fallbackUrl;
+            }
             linkOpened = false;
-        }, 1000);
+        }, 1200);
     };
 
     const handleTmap = () => {
@@ -47,10 +52,19 @@ export default function DestinationNavigator({
         openLink(appUrl, fallbackUrl);
     };
 
+    const handleKakaoMap = () => {
+        const appUrl = `kakaomap://route?ep=${lat},${lng}&by=CAR`;
+        const fallbackUrl = isIOS
+            ? "https://apps.apple.com/kr/app/id304608425" // 카카오맵 iOS
+            : "https://play.google.com/store/apps/details?id=net.daum.android.map"; // 카카오맵 Android
+        openLink(appUrl, fallbackUrl);
+    };
+
     return (
         <div className="navigators">
             <button onClick={handleTmap}>티맵으로 길찾기</button>
             <button onClick={handleNaver}>네이버지도 길찾기</button>
+            <button onClick={handleKakaoMap}>카카오맵으로 길찾기</button>
         </div>
     );
 }

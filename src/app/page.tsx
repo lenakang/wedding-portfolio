@@ -5,12 +5,12 @@ import "./page.scss";
 import AOS from "aos";
 import { useEffect } from "react";
 import {
-    About,
-    Invite,
-    Hero,
-    Calendar,
-    People,
-    Gallery,
+    // About,
+    // Invite,
+    // Hero,
+    // Calendar,
+    // People,
+    // Gallery,
     Map,
 } from "@/components/sections";
 
@@ -29,12 +29,12 @@ export default function Home() {
                     <h1>lena kang</h1>
                 </div>
             </header>
-            <Hero />
+            {/* <Hero />
             <About />
             <Invite />
             <People />
             <Calendar />
-            <Gallery />
+            <Gallery /> */}
             <Map />
         </main>
     );
