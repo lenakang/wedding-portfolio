@@ -1,43 +1,12 @@
 "use client";
 
 import "./styles.scss";
+import DestinationNavigator from "./DestinationNavigator";
 
 export default function Index() {
     const lat = 37.519518;
     const lng = 127.020056;
     const name = "신사스퀘어";
-
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    let linkOpened = false;
-
-    const openLink = (appUrl: string, label: string, fallbackUrl: string) => {
-        if (!isMobile || linkOpened) return;
-
-        linkOpened = true; // 최초 클릭만 허용
-        window.location.href = appUrl;
-
-        setTimeout(() => {
-            window.location.href = fallbackUrl;
-            linkOpened = false; // 다시 누를 수 있게 해줌
-        }, 1000);
-    };
-
-    const handleTmap = () => {
-        const appUrl = `tmap://route?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(
-            name
-        )}`;
-        const fallbackUrl = `https://play.google.com/store/apps/details?id=com.skt.tmap.ku`;
-        openLink(appUrl, "티맵", fallbackUrl);
-    };
-
-    const handleNaver = () => {
-        const appUrl = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
-            name
-        )}&appname=com.example.app`;
-        const fallbackUrl = `https://play.google.com/store/apps/details?id=com.nhn.android.nmap`;
-        openLink(appUrl, "네이버지도", fallbackUrl);
-    };
 
     return (
         <div className="map">
@@ -66,10 +35,7 @@ export default function Index() {
                     전화하기
                 </a>
 
-                <div className="navigators">
-                    <button onClick={handleTmap}>티맵으로 길찾기</button>
-                    <button onClick={handleNaver}>네이버지도 길찾기</button>
-                </div>
+                <DestinationNavigator lat={lat} lng={lng} name={name} />
             </div>
         </div>
     );
