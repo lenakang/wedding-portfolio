@@ -49,19 +49,19 @@
             margin-top: 2rem;
 
             button {
-                position: relative;
-                border: none;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 0.6rem;
                 padding: 1rem 1.5rem;
-                border-radius: 4px;
-                font-weight: 500;
+                border-radius: 3px;
+                font-weight: 400;
+                border: none;
                 color: var(--foreground);
-                background-color: #d7d2b4;
-                height: 3rem;
+                background-color: var(--highlight);
                 min-width: 10rem;
+                height: 3rem;
+                font-size: 1.6rem;
             }
         }
     }

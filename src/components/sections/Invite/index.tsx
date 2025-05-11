@@ -6,7 +6,7 @@ export default function index() {
             <span className="tag" data-aos="my-fade-up">
                 invite you
             </span>
-            <h3 data-aos="my-fade-up">초대합니다</h3>
+            <h4 data-aos="my-fade-up">초대합니다</h4>
             <p data-aos="my-fade-up">
                 눈부시게 찬란한 날, 저희 부부가 됩니다.
                 <br />

@@ -3,7 +3,7 @@
 :root {
     --background: #f0eee2;
     --foreground: #443017;
-    --highlight: #a77132;
+    --highlight: #d7d2b4;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -64,7 +64,7 @@ main {
 }
 
 h3 {
-    font-size: 3.4rem;
+    font-size: 3.2rem;
     font-weight: 400;
     letter-spacing: -1.2px;
     text-transform: capitalize;
