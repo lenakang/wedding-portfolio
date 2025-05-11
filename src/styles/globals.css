@@ -3,6 +3,7 @@
 :root {
     --background: #f0eee2;
     --foreground: #443017;
+    --highlight: #a77132;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -185,7 +186,7 @@ h3 {
 .read-only-calendar .rdp-day.rdp-selected::after {
     content: "11시";
     font-size: 1.2rem;
-    color: #a77132;
+    color: var(--highlight);
     font-weight: 600;
     position: absolute;
     left: 50%;
@@ -206,7 +207,7 @@ h3 {
 }
 
 .read-only-calendar .rdp-weekday:nth-child(7) {
-    color: #a77132;
+    color: var(--highlight);
 }
 
 .hanken {

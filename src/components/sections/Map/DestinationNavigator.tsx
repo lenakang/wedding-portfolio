@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type NavigatorProps = {
     lat: number;
     lng: number;
@@ -62,9 +64,28 @@ export default function DestinationNavigator({
 
     return (
         <div className="navigators">
-            <button onClick={handleTmap}>티맵으로 길찾기</button>
-            <button onClick={handleNaver}>네이버지도 길찾기</button>
-            <button onClick={handleKakaoMap}>카카오맵으로 길찾기</button>
+            <button className="tmap" onClick={handleTmap}>
+                <Image src="/icon_tmap.png" width={13} height={13} alt="icon" />
+                티맵
+            </button>
+            <button className="kakao" onClick={handleKakaoMap}>
+                <Image
+                    src="/icon_kakao.png"
+                    width={12}
+                    height={17}
+                    alt="icon"
+                />
+                카카오맵
+            </button>
+            <button className="naver" onClick={handleNaver}>
+                <Image
+                    src="/icon_naver.png"
+                    width={15}
+                    height={15}
+                    alt="icon"
+                />
+                네이버지도
+            </button>
         </div>
     );
 }
