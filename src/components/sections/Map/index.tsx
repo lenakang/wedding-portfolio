@@ -9,50 +9,34 @@ export default function Index() {
 
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    const openLink = (url: string, label: string) => {
-        if (!isMobile) {
-            alert(`${label} 길찾기는 모바일 기기에서만 실행됩니다.`);
-            return;
-        }
-        window.location.href = url;
+    let linkOpened = false;
+
+    const openLink = (appUrl: string, label: string, fallbackUrl: string) => {
+        if (!isMobile || linkOpened) return;
+
+        linkOpened = true; // 최초 클릭만 허용
+        window.location.href = appUrl;
+
+        setTimeout(() => {
+            window.location.href = fallbackUrl;
+            linkOpened = false; // 다시 누를 수 있게 해줌
+        }, 1000);
     };
 
     const handleTmap = () => {
-        const url = `tmap://route?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(
+        const appUrl = `tmap://route?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(
             name
         )}`;
-        openLink(url, "티맵");
-    };
-
-    const handleKakao = () => {
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (!isMobile) {
-            alert("카카오내비는 모바일 기기에서만 실행됩니다.");
-            return;
-        }
-
-        const place = "서울 강남구 신사동 504-11";
-        const x = "127.0191416";
-        const y = "37.5194624";
-
-        const url = `kakaonavi://navigate?name=${encodeURIComponent(
-            place
-        )}&x=${x}&y=${y}&coord_type=wgs84`;
-        const fallback =
-            "https://play.google.com/store/apps/details?id=com.locnall.KimGiSa";
-
-        window.location.href = url;
-
-        setTimeout(() => {
-            window.location.href = fallback;
-        }, 1500);
+        const fallbackUrl = `https://play.google.com/store/apps/details?id=com.skt.tmap.ku`;
+        openLink(appUrl, "티맵", fallbackUrl);
     };
 
     const handleNaver = () => {
-        const url = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
+        const appUrl = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
             name
         )}&appname=com.example.app`;
-        openLink(url, "네이버지도");
+        const fallbackUrl = `https://play.google.com/store/apps/details?id=com.nhn.android.nmap`;
+        openLink(appUrl, "네이버지도", fallbackUrl);
     };
 
     return (
@@ -84,7 +68,6 @@ export default function Index() {
 
                 <div className="navigators">
                     <button onClick={handleTmap}>티맵으로 길찾기</button>
-                    <button onClick={handleKakao}>카카오내비로 길찾기</button>
                     <button onClick={handleNaver}>네이버지도 길찾기</button>
                 </div>
             </div>
