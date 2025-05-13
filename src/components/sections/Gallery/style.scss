@@ -1,156 +1,171 @@
 .gallery {
-    text-align: center;
-    padding: 6rem 0;
+  text-align: center;
+  padding: 6rem 0 5rem;
 
-    h3 {
-        padding: 0 1.5rem;
-        margin: 1rem 0 2rem;
+  h3 {
+    padding: 0 1.5rem;
+    margin: 1rem 0 2rem;
+  }
+  > p {
+    padding: 0 1.5rem;
+    padding-bottom: 4rem;
+    margin: 0 auto;
+    font-family: "Hanken Grotesk", "Pretendard";
+    font-size: 1.2rem;
+
+    span {
+      display: block;
+      margin-top: 1.5rem;
     }
-    > p {
-        padding: 0 1.5rem;
-        padding-bottom: 4rem;
-        margin: 0 auto;
-        font-family: "Hanken Grotesk", "Pretendard";
-        font-size: 1.2rem;
+  }
 
-        span {
-            display: block;
-            margin-top: 1.5rem;
+  &__inner {
+    display: flex;
+
+    .swiper {
+      width: calc(100% - 35px);
+      padding-left: 1.5rem;
+    }
+
+    .swiper-wrapper {
+      .img {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 0.95238;
+
+        img {
+          object-fit: cover;
         }
+      }
     }
 
-    &__inner {
+    &_pagination {
+      width: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      button {
+        font-family: "Pretendard", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        -webkit-font-smoothing: antialiased; // 부드럽고 얇게 렌더링
+        color: var(--foreground);
+        letter-spacing: 0.2rem;
+        margin: 2rem auto;
+        border: none;
+        background-color: inherit;
+        font-family: "Hanken Grotesk";
+        font-weight: 600;
+
+        &::before {
+          content: "0";
+          font-family: "Hanken Grotesk";
+        }
+      }
+
+      .swiper-pagination-bullet-active {
+        position: relative;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--foreground);
+          opacity: 0.8;
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__present {
+    padding: 0 1.5rem;
+    text-align: left;
+    margin-top: 8rem;
+
+    p {
+      font-size: 1rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: "Hanken Grotesk";
+      font-weight: 600;
+      border-bottom: 1px solid var(--foreground);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .name {
+        font-size: 2.4rem;
+      }
+      .controls {
         display: flex;
 
-        .swiper {
-            width: calc(100% - 35px);
-            padding-left: 1.5rem;
+        button {
+          border: none;
+          background-color: none;
+          width: 4rem;
+          height: 1.6rem;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          background-color: transparent;
+
+          &.prev {
+            background-image: url("/btn-prev.png");
+          }
+          &.next {
+            background-image: url("/btn-next.png");
+            margin-left: 1rem;
+          }
         }
-
-        .swiper-wrapper {
-            .img {
-                position: relative;
-                width: 100%;
-                aspect-ratio: 0.95238;
-
-                img {
-                    object-fit: cover;
-                }
-            }
-        }
-
-        &_pagination {
-            width: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            button {
-                font-family: "Pretendard", sans-serif;
-                font-weight: 400;
-                font-size: 1rem;
-                -webkit-font-smoothing: antialiased; // 부드럽고 얇게 렌더링
-                color: var(--foreground);
-                letter-spacing: 0.2rem;
-                margin: 2rem auto;
-                border: none;
-                background-color: inherit;
-                font-family: "Hanken Grotesk";
-                font-weight: 600;
-
-                &::before {
-                    content: "0";
-                    font-family: "Hanken Grotesk";
-                }
-            }
-
-            .swiper-pagination-bullet-active {
-                position: relative;
-
-                &::after {
-                    content: "";
-                    display: inline-block;
-                    width: 100%;
-                    height: 1px;
-                    background-color: var(--foreground);
-                    opacity: 0.8;
-                    position: absolute;
-                    bottom: -2px;
-                    left: 0;
-                }
-            }
-        }
+      }
     }
 
-    &__present {
-        padding: 0 1.5rem;
-        text-align: left;
-        margin-top: 8rem;
+    .swiper-wrapper {
+      margin-top: 1rem;
 
-        p {
-            font-size: 1rem;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            font-family: "Hanken Grotesk";
-            font-weight: 600;
-            border-bottom: 1px solid var(--foreground);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
+      .img {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+
+        h1 {
+          font-size: 2rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #fff;
+          z-index: 1;
         }
 
-        &__title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .name {
-                font-size: 2.4rem;
-            }
-            .controls {
-                display: flex;
-
-                button {
-                    border: none;
-                    background-color: none;
-                    width: 4rem;
-                    height: 1.6rem;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center center;
-                    background-color: transparent;
-
-                    &.prev {
-                        background-image: url("/btn-prev.png");
-                    }
-                    &.next {
-                        background-image: url("/btn-next.png");
-                        margin-left: 1rem;
-                    }
-                }
-            }
+        img {
+          object-fit: cover;
         }
-
-        .swiper-wrapper {
-            margin-top: 1rem;
-
-            .img {
-                position: relative;
-                width: 100%;
-                aspect-ratio: 1;
-
-                h1 {
-                    font-size: 2rem;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: #fff;
-                    z-index: 1;
-                }
-
-                img {
-                    object-fit: cover;
-                }
-            }
-        }
+      }
     }
+
+    .gallery__present_swiper {
+      position: relative;
+    }
+
+    .swiper2-pagination {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #555;
+      margin-top: 0.5rem;
+      font-family: "Hanken Grotesk";
+      letter-spacing: -0.1rem;
+      font-weight: 600;
+    }
+  }
 }

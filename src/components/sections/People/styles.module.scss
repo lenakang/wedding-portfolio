@@ -1,130 +1,119 @@
 .people {
-    padding-bottom: 6rem;
+  padding-bottom: 5rem;
 
-    &__person {
-        display: flex;
+  &__person {
+    display: flex;
 
-        > div {
-            flex: 1 1 50%;
-        }
-
-        &_img {
-            position: relative;
-            aspect-ratio: 3/4;
-
-            img {
-                object-fit: cover;
-            }
-        }
-
-        &_desc {
-            font-family: "Pretendard";
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-
-            .people__person_inner {
-                width: fit-content;
-                margin: 0 auto;
-            }
-
-            &_name {
-                line-height: 1.4;
-                font-size: 1.2rem;
-
-                span {
-                    font-size: 2rem;
-                }
-
-                svg {
-                    width: 1.3rem;
-                }
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 2rem 0;
-
-                li {
-                    position: relative;
-                    font-size: 1.2rem;
-
-                    &::before {
-                        content: "# ";
-                    }
-                }
-            }
-        }
-
-        &.reverse {
-            flex-direction: row-reverse;
-
-            .people__person_desc {
-                text-align: right;
-            }
-        }
+    > div {
+      flex: 1 1 50%;
     }
 
-    .contact {
-        button {
-            font-size: 1.4rem;
-            background: #a77132;
-            color: inherit;
-            border: none;
-            width: 16rem;
-            height: 4rem;
-            line-height: 4rem;
-            font-weight: 500;
-            text-align: center;
-            color: var(--background);
-            border-radius: 2px;
-            margin: 6rem auto 0;
-        }
+    &_img {
+      position: relative;
+      aspect-ratio: 3/4;
+
+      img {
+        object-fit: cover;
+      }
     }
+
+    &_desc {
+      font-family: "Pretendard";
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .people__person_inner {
+        width: fit-content;
+        margin: 0 auto;
+      }
+
+      &_name {
+        line-height: 1.4;
+        font-size: 1.2rem;
+
+        span {
+          font-size: 2rem;
+        }
+
+        svg {
+          width: 1.3rem;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+
+        li {
+          position: relative;
+          font-size: 1.2rem;
+
+          &::before {
+            content: "# ";
+          }
+        }
+      }
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+
+      .people__person_desc {
+        text-align: right;
+      }
+    }
+  }
+
+  .contact {
+    button {
+      margin: 6rem auto 0;
+    }
+  }
 }
 
 // popup
 .contact {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+
+  > li {
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
-    list-style: none;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid var(--foreground);
 
-    > li {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        padding: 2rem 1rem;
-        border-bottom: 1px solid var(--foreground);
+    &:nth-child(odd) {
+      border-right: 1px solid var(--foreground);
+    }
+    &:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
+  }
 
-        &:nth-child(odd) {
-            border-right: 1px solid var(--foreground);
-        }
-        &:nth-last-child(-n + 2) {
-            border-bottom: none;
-        }
-    }
+  &_title {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+  &_name {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
 
-    &_title {
-        font-size: 1.2rem;
-        margin-bottom: 0.2rem;
-    }
-    &_name {
-        font-size: 1.8rem;
-        font-weight: 500;
-    }
+  a {
+    display: flex;
+    align-items: center;
+    // border: 1px solid var(--foreground);
+    border-radius: 3px;
+    margin-top: 1rem;
+  }
 
-    a {
-        display: flex;
-        align-items: center;
-        // border: 1px solid var(--foreground);
-        border-radius: 3px;
-        margin-top: 1rem;
-    }
-
-    svg {
-        margin-right: 1rem;
-        width: 1.4rem;
-        height: 1.4rem;
-    }
+  svg {
+    margin-right: 1rem;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 }

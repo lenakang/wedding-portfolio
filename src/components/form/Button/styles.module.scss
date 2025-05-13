@@ -3,19 +3,27 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 1rem 1.5rem;
-  border-radius: 3px;
-  font-weight: 400;
   border: none;
+  font-weight: 400;
   color: var(--foreground);
   background-color: var(--highlight);
-  min-width: 10rem;
-  height: 3rem;
-  font-size: 1.6rem;
   cursor: pointer;
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
+}
+
+.small {
+  padding: 1rem 1.5rem;
+  min-width: 10rem;
+  height: 3rem;
+  font-size: 1.6rem;
+}
+
+.normal {
+  padding: 1.2rem 2rem;
+  min-width: 12rem;
+  height: 3.6rem;
 }
