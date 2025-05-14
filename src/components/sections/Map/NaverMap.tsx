@@ -3,38 +3,40 @@
 import { useEffect } from "react";
 
 interface NaverMapProps {
-  lat: number;
-  lng: number;
-  label: string;
+    lat: number;
+    lng: number;
+    label: string;
 }
 
 export default function NaverMap({ lat, lng, label }: NaverMapProps) {
-  useEffect(() => {
-    if (window.naver && window.naver.maps) {
-      const center = new naver.maps.LatLng(lat, lng);
+    useEffect(() => {
+        if (!window.naver || !window.naver.maps) return;
 
-      const map = new naver.maps.Map("map", {
-        center,
-        zoom: 17,
-      });
+        const center = new window.naver.maps.LatLng(lat, lng);
 
-      const marker = new naver.maps.Marker({
-        position: center,
-        map,
-      });
+        const map = new window.naver.maps.Map("map", {
+            center,
+            zoom: 17,
+            scrollWheel: false,
+        });
 
-      const infoWindow = new naver.maps.InfoWindow({
-        content: `<div class="map__infowindow">${label}</div>`,
-      });
+        const marker = new window.naver.maps.Marker({ position: center, map });
+        const infoWindow = new window.naver.maps.InfoWindow({
+            content: `<div class="map__infowindow">${label}</div>`,
+        });
+        infoWindow.open(map, marker);
 
-      infoWindow.open(map, marker);
+        const handleResize = () => {
+            map.relayout();
+            map.setCenter(center);
+        };
 
-      // 지도 중심을 아래로 이동
-      naver.maps.Event.once(map, "idle", () => {
-        map.panBy({ x: 0, y: -100 });
-      });
-    }
-  }, [lat, lng, label]);
+        window.addEventListener("resize", handleResize);
 
-  return <div id="map" className="naverDynamicMap" />;
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [lat, lng, label]);
+
+    return <div id="map" className="naverDynamicMap" />;
 }

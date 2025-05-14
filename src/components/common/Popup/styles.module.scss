@@ -1,97 +1,112 @@
 .backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .content {
-  width: 100%;
-  background-color: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  overflow-y: auto;
-  text-align: left;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
 }
 
 .close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* 기본 contact 스타일 = line1 (1열 세로) */
 .contact {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  > li {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid var(--foreground);
-    font-family: "Pretendard";
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    &:last-child {
-      border-bottom: none;
+    > li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        border-bottom: 1px solid var(--foreground);
+        font-family: "Pretendard";
+
+        &:last-child {
+            border-bottom: none;
+        }
     }
-  }
 
-  &_title {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-  }
+    &_title {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+    }
 
-  &_name {
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
+    &_name {
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
 
-  a {
-    display: flex;
-    align-items: center;
-    border-radius: 3px;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: inherit;
-  }
+    a {
+        display: flex;
+        align-items: center;
+        border-radius: 3px;
+        margin-top: 1rem;
+        text-decoration: none;
+        color: inherit;
+    }
 
-  svg {
-    margin-right: 1rem;
-    width: 1.4rem;
-    height: 1.4rem;
-  }
+    svg {
+        margin-right: 1rem;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
 }
 
 /* line2: 2열 가로 정렬로 덮어쓰기 */
 .line2 .contact {
-  flex-direction: row;
-  flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-  > li {
-    width: 50%;
-    border-bottom: 1px solid var(--foreground);
+    > li {
+        width: 50%;
+        border-bottom: 1px solid var(--foreground);
 
-    &:nth-child(odd) {
-      border-right: 1px solid var(--foreground);
+        &:nth-child(odd) {
+            border-right: 1px solid var(--foreground);
+        }
+
+        &:nth-last-child(-n + 2) {
+            border-bottom: none;
+        }
     }
+}
 
-    &:nth-last-child(-n + 2) {
-      border-bottom: none;
+/* 송금 */
+.contact_accountNumber {
+    display: flex;
+    justify-content: space-between;
+}
+.contact_kakaoPay {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        background-color: #fee500;
+        color: #222;
     }
-  }
 }
