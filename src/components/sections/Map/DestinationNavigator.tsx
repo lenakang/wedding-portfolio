@@ -12,7 +12,18 @@ type NavigatorProps = {
 
 declare global {
   interface Window {
-    Kakao: any;
+    Kakao: {
+      isInitialized: () => boolean;
+      init: (key: string) => void;
+      Navi: {
+        start: (config: {
+          name: string;
+          x: number;
+          y: number;
+          coordType: "wgs84" | "katec";
+        }) => void;
+      };
+    };
   }
 }
 
@@ -21,7 +32,7 @@ export default function DestinationNavigator({
   lng,
   name,
 }: NavigatorProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [_, setIsMobile] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [kakaoReady, setKakaoReady] = useState(false);
 
