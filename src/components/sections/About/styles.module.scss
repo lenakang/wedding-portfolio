@@ -144,9 +144,11 @@
             font-family: "Hanken Grotesk", "Pretendard", sans-serif;
         }
 
-        a {
+        button {
             width: fit-content;
             margin: 1rem auto 0;
+            background: inherit;
+            border: none;
         }
     }
 }

@@ -5,7 +5,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Typewriter from "@/utils/Typewriter/Typewriter";
 import styles from "./styles.module.scss";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger); // ✅ ScrollTrigger 등록 (경고 제거)
 
@@ -82,6 +81,15 @@ export default function AboutSection() {
             );
         });
     }, []);
+
+    const scrollToMap = () => {
+        const anchor = document.getElementById("sectionMap");
+        if (anchor) {
+            window.scrollTo({
+                top: anchor.offsetTop,
+            });
+        }
+    };
 
     return (
         <section className={styles.about}>
@@ -250,13 +258,13 @@ export default function AboutSection() {
                         <span>2025년 6월 28일 11시</span>
                     </div>
 
-                    <Link
-                        href="#sectionMap"
+                    <button
+                        onClick={scrollToMap}
                         className="tag underline"
                         data-aos="my-fade-up"
                     >
                         View Details
-                    </Link>
+                    </button>
                 </div>
             </div>
         </section>

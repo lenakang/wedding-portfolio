@@ -15,12 +15,14 @@
         align-items: center;
         justify-content: center;
 
-        a {
+        button {
             padding: 1.5rem;
             position: absolute;
             left: 0;
             top: 50%;
             transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
             display: inline-flex;
             align-items: center;
 

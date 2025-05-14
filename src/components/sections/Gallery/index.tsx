@@ -18,10 +18,9 @@ export default function Index() {
             if (anchor) {
                 setTimeout(() => {
                     window.scrollTo({
-                        top: anchor.offsetTop - 80,
-                        behavior: "smooth",
+                        top: anchor.offsetTop,
                     });
-                }, 100); // 렌더링 이후를 기다림
+                }, 100);
             }
         }
     }, [searchParams]);

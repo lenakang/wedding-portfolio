@@ -12,8 +12,8 @@ const name = "신사스퀘어";
 export default function Index() {
     return (
         <div id="sectionMap" className="map">
-            <h3>오시는 길</h3>
-            <div className="info">
+            <h3 data-aos="my-fade-up">오시는 길</h3>
+            <div className="info" data-aos="my-fade-up">
                 <h4>
                     더컨벤션 신사
                     <span>4층 그랜드볼룸홀</span>
@@ -26,11 +26,11 @@ export default function Index() {
                     </a>
                 </div>
             </div>
-            <div className="map-info">
+            <div className="map-info" data-aos="my-fade-up">
                 <NaverMap lat={lat} lng={lng} label="더컨벤션 신사" />
                 <DestinationNavigator lat={lat} lng={lng} name={name} />
             </div>
-            <div className="transportation">
+            <div className="transportation" data-aos="my-fade-up">
                 <dl>
                     <dt>
                         <svg
