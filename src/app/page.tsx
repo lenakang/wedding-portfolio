@@ -3,7 +3,7 @@
 import "aos/dist/aos.css";
 import "./page.scss";
 import AOS from "aos";
-import { useEffect, Suspense } from "react";
+import { useEffect } from "react";
 import {
     About,
     Invite,
@@ -58,13 +58,13 @@ export default function Home() {
                 <Invite />
                 <People />
                 <Calendar />
-                <Suspense fallback={null}>
-                    <Gallery />
-                </Suspense>
-
+                <Gallery />
                 <Map />
                 <Account />
                 <GuestBook />
+                <footer className="footer">
+                    © 2025 Narae Kang. All rights reserved.
+                </footer>
             </main>
         </>
     );
