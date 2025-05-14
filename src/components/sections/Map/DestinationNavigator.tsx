@@ -44,14 +44,23 @@ export default function DestinationNavigator({
     setIsMobile(mobile);
     setIsIOS(ios);
 
-    // ✅ SDK는 이미 Home.tsx에서 로드되므로 여기선 초기화만 확인
-    if (window.Kakao?.isInitialized()) {
-      setKakaoReady(true);
-    }
+    const checkReady = setInterval(() => {
+      if (typeof window.Kakao?.Navi?.start === "function") {
+        setKakaoReady(true);
+        clearInterval(checkReady);
+      }
+    }, 300);
+
+    return () => clearInterval(checkReady);
   }, []);
 
   const handleKakaoNavi = () => {
-    if (!kakaoReady || !window.Kakao?.Navi) {
+    if (!isMobile) {
+      alert("카카오내비는 모바일 기기에서만 사용할 수 있습니다.");
+      return;
+    }
+
+    if (!kakaoReady || !window.Kakao?.Navi?.start) {
       alert("카카오내비를 실행할 수 없습니다.");
       return;
     }
@@ -104,17 +113,27 @@ export default function DestinationNavigator({
   return (
     <div className="navigators">
       <Button size="small" className="tmap" onClick={handleTmap}>
-        <Image src="/icon_tmap.png" width={13} height={13} alt="icon" />
+        <Image src="/icon_tmap.png" width={13} height={13} alt="티맵 아이콘" />
         티맵
       </Button>
 
-      <Button size="small" className="kakao" onClick={handleKakaoNavi}>
-        <Image src="/icon_kakao.png" width={15} height={15} alt="icon" />
+      <Button size="small" className="kakaonavi" onClick={handleKakaoNavi}>
+        <Image
+          src="/icon_kakaonavi.png"
+          width={15}
+          height={15}
+          alt="카카오내비 아이콘"
+        />
         카카오내비
       </Button>
 
       <Button size="small" className="naver" onClick={handleNaver}>
-        <Image src="/icon_naver.png" width={15} height={15} alt="icon" />
+        <Image
+          src="/icon_naver.png"
+          width={15}
+          height={15}
+          alt="네이버지도 아이콘"
+        />
         네이버지도
       </Button>
     </div>
