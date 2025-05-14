@@ -4,22 +4,8 @@ import "swiper/css/effect-fade";
 import Link from "next/link";
 import Swiper1 from "./Swiper1";
 import Swiper2 from "./Swiper2";
-import { useEffect } from "react";
 
 export default function MyGallery() {
-    useEffect(() => {
-        if (typeof window === "undefined") return;
-
-        const hash = window.location.hash;
-        if (hash === "#gallery") {
-            const target = document.getElementById("gallery");
-            if (target) {
-                const y = target.getBoundingClientRect().top + window.scrollY;
-                window.scrollTo({ top: y, behavior: "smooth" });
-            }
-        }
-    }, []);
-
     return (
         <div className="gallery">
             <span className="tag" data-aos="my-fade-up">
@@ -31,18 +17,14 @@ export default function MyGallery() {
                 beginnings.
             </p>
             <Swiper1 />
-            <div
-                id="gallery"
-                className="gallery__present"
-                data-aos="my-fade-up"
-            >
+            <div className="gallery__present" data-aos="my-fade-up">
                 <p>
                     The present /{" "}
                     <Link href="/gallery" className="underline">
                         View full gallery
                     </Link>
                 </p>
-                <div className="gallery__present__title">
+                <div id="gallery" className="gallery__present__title">
                     <span className="name">Narae & Daeseung</span>
                     <div className="controls">
                         <button className="prev" />
