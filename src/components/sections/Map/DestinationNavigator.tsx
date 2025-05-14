@@ -71,7 +71,7 @@ export default function DestinationNavigator({
   };
 
   return (
-    <div className="navigators">
+    <>
       <Button size="small" className="tmap" onClick={handleTmap}>
         <Image src="/icon_tmap.png" width={13} height={13} alt="icon" />
         티맵
@@ -86,6 +86,6 @@ export default function DestinationNavigator({
         <Image src="/icon_naver.png" width={15} height={15} alt="icon" />
         네이버지도
       </Button>
-    </div>
+    </>
   );
 }

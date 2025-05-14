@@ -24,6 +24,7 @@
     "@eslint/eslintrc": "^3",
     "@types/aos": "^3.0.7",
     "@types/classnames": "^2.3.4",
+    "@types/navermaps": "^3.7.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
