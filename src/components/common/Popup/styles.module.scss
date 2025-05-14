@@ -22,12 +22,17 @@
 
 .close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+
+    svg {
+        width: 2rem;
+        color: var(--foreground);
+    }
 }
 
 /* 기본 contact 스타일 = line1 (1열 세로) */
