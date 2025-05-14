@@ -32,7 +32,7 @@ export default function DestinationNavigator({
   lng,
   name,
 }: NavigatorProps) {
-  const [_, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [kakaoReady, setKakaoReady] = useState(false);
 
@@ -65,8 +65,14 @@ export default function DestinationNavigator({
   };
 
   const openLink = (appUrl: string, fallbackUrl: string) => {
+    if (!isMobile) {
+      alert("이 기능은 모바일 기기에서만 사용할 수 있습니다.");
+      return;
+    }
+
     const now = Date.now();
     window.location.href = appUrl;
+
     setTimeout(() => {
       const elapsed = Date.now() - now;
       if (document.visibilityState === "visible" && elapsed < 1500) {
