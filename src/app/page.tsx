@@ -12,6 +12,7 @@ import {
   People,
   Gallery,
   Map,
+  Account,
 } from "@/components/sections";
 import Script from "next/script";
 
@@ -56,6 +57,7 @@ export default function Home() {
         <Calendar />
         <Gallery />
         <Map />
+        <Account />
       </main>
     </>
   );
