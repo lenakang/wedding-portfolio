@@ -1,16 +1,19 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import "./styles.scss";
-import Link from "next/link";
 
 const images = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(
     (img) => `/gallery_more_${img}.jpg`
 );
 
-export default function page() {
+export default function Page() {
+    const router = useRouter();
     return (
         <div className="gallery_more">
             <h3 className="gallery_more__nav">
-                <Link href="/#gallery">
+                <button onClick={() => router.push("/?scrollTo=gallery")}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -25,7 +28,8 @@ export default function page() {
                             d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
                         />
                     </svg>
-                </Link>
+                    ddd
+                </button>
                 <span>Gallery</span>
             </h3>
             <div className="gallery_more__inner">
