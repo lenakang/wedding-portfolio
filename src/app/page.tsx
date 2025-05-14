@@ -13,6 +13,7 @@ import {
     Gallery,
     Map,
     Account,
+    GuestBook,
 } from "@/components/sections";
 import Script from "next/script";
 
@@ -63,6 +64,7 @@ export default function Home() {
 
                 <Map />
                 <Account />
+                <GuestBook />
             </main>
         </>
     );

@@ -6,3 +6,4 @@ export { default as Calendar } from "./Calendar";
 export { default as Gallery } from "./Gallery";
 export { default as Map } from "./Map";
 export { default as Account } from "./Account";
+export { default as GuestBook } from "./GuestBook";
