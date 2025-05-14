@@ -17,11 +17,8 @@ export default function MyGallery() {
                 beginnings.
             </p>
             <Swiper1 />
-            <div
-                id="gallery"
-                className="gallery__present"
-                data-aos="my-fade-up"
-            >
+            <div className="gallery__scroll-anchor" id="gallery" />
+            <div className="gallery__present" data-aos="my-fade-up">
                 <p>
                     The present /{" "}
                     <Link href="/gallery" className="underline">

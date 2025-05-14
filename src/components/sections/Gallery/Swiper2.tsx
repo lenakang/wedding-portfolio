@@ -1,7 +1,13 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Autoplay, Pagination } from "swiper/modules";
+import {
+    EffectFade,
+    Navigation,
+    Autoplay,
+    Pagination,
+    Zoom,
+} from "swiper/modules";
 import Image from "next/image";
 import "./style.scss";
 
@@ -16,13 +22,16 @@ export default function Swiper2() {
         <>
             <Swiper
                 className="gallery__present_swiper"
-                modules={[EffectFade, Navigation, Autoplay, Pagination]}
+                modules={[EffectFade, Navigation, Autoplay, Pagination, Zoom]}
                 effect="fade"
                 fadeEffect={{ crossFade: false }}
                 slidesPerView={1}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
+                }}
+                zoom={{
+                    maxRatio: 2, // 2배 확대
                 }}
                 loop
                 allowTouchMove={true}
