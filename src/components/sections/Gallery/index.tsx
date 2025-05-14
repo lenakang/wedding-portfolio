@@ -8,7 +8,7 @@ import Swiper1 from "./Swiper1";
 import Swiper2 from "./Swiper2";
 import { useSearchParams } from "next/navigation";
 
-export default function MyGallery() {
+export default function Index() {
     const searchParams = useSearchParams();
 
     useEffect(() => {
@@ -25,6 +25,7 @@ export default function MyGallery() {
             }
         }
     }, [searchParams]);
+
     return (
         <div className="gallery">
             <span className="tag" data-aos="my-fade-up">
