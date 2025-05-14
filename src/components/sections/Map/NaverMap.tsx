@@ -18,6 +18,11 @@ export default function NaverMap({ lat, lng, label }: NaverMapProps) {
             center,
             zoom: 17,
             scrollWheel: false,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: window.naver.maps.ZoomControlStyle.SMALL,
+                position: window.naver.maps.Position.TOP_RIGHT,
+            },
         });
 
         const marker = new window.naver.maps.Marker({ position: center, map });
@@ -27,15 +32,11 @@ export default function NaverMap({ lat, lng, label }: NaverMapProps) {
         infoWindow.open(map, marker);
 
         const handleResize = () => {
-            map.relayout();
             map.setCenter(center);
         };
 
         window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        return () => window.removeEventListener("resize", handleResize);
     }, [lat, lng, label]);
 
     return <div id="map" className="naverDynamicMap" />;

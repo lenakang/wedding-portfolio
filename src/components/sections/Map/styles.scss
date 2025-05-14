@@ -112,6 +112,14 @@
                     transform: translateY(1px);
                 }
             }
+
+            &:last-child {
+                dt {
+                    svg {
+                        width: 1.4rem;
+                    }
+                }
+            }
         }
     }
 }
