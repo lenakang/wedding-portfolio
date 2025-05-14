@@ -251,7 +251,7 @@ export default function AboutSection() {
                     </div>
 
                     <Link
-                        href="#."
+                        href="#sectionMap"
                         className="tag underline"
                         data-aos="my-fade-up"
                     >

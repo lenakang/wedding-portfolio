@@ -11,7 +11,7 @@ const name = "신사스퀘어";
 
 export default function Index() {
     return (
-        <div className="map">
+        <div id="sectionMap" className="map">
             <h3>오시는 길</h3>
             <div className="info">
                 <h4>

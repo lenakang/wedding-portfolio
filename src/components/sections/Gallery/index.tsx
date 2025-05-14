@@ -17,14 +17,18 @@ export default function MyGallery() {
                 beginnings.
             </p>
             <Swiper1 />
-            <div className="gallery__present" data-aos="my-fade-up">
+            <div
+                id="gallery"
+                className="gallery__present"
+                data-aos="my-fade-up"
+            >
                 <p>
                     The present /{" "}
                     <Link href="/gallery" className="underline">
                         View full gallery
                     </Link>
                 </p>
-                <div id="gallery" className="gallery__present__title">
+                <div className="gallery__present__title">
                     <span className="name">Narae & Daeseung</span>
                     <div className="controls">
                         <button className="prev" />

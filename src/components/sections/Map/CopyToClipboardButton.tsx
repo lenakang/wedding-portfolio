@@ -16,7 +16,7 @@ export default function CopyToClipboardButton() {
     };
 
     return (
-        <div>
+        <>
             <span className="copyBtn underline" onClick={handleCopy}>
                 주소 복사하기
             </span>
@@ -24,6 +24,6 @@ export default function CopyToClipboardButton() {
             {copied && (
                 <div className="copyBtn__popup">주소가 복사되었습니다.</div>
             )}
-        </div>
+        </>
     );
 }
