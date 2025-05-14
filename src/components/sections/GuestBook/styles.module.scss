@@ -57,8 +57,9 @@
             border: none;
             border-bottom: 1px solid var(--foreground);
             outline: none;
-            color: --var(--foreground);
+            color: var(--foreground);
             font-size: 1.6rem;
+            border-radius: 0;
         }
 
         span {
