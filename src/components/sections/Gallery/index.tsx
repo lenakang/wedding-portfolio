@@ -1,30 +1,12 @@
 "use client";
-import { useEffect } from "react";
 import "./style.scss";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import Link from "next/link";
 import Swiper1 from "./Swiper1";
 import Swiper2 from "./Swiper2";
-import { useSearchParams } from "next/navigation";
 
 export default function Index() {
-    const searchParams = useSearchParams();
-
-    useEffect(() => {
-        const target = searchParams?.get("scrollTo");
-        if (target === "gallery") {
-            const anchor = document.getElementById("gallery");
-            if (anchor) {
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: anchor.offsetTop,
-                    });
-                }, 100);
-            }
-        }
-    }, [searchParams]);
-
     return (
         <div className="gallery">
             <span className="tag" data-aos="my-fade-up">
