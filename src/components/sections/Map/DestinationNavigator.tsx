@@ -10,6 +10,12 @@ type NavigatorProps = {
   name: string;
 };
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 export default function DestinationNavigator({
   lat,
   lng,
@@ -17,28 +23,44 @@ export default function DestinationNavigator({
 }: NavigatorProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
-  let linkOpened = false;
+  const [kakaoReady, setKakaoReady] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
-    setIsMobile(/Android|iPhone|iPad|iPod/i.test(userAgent));
-    setIsIOS(/iPhone|iPad|iPod/i.test(userAgent));
+    const mobile = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    const ios = /iPhone|iPad|iPod/i.test(userAgent);
+
+    setIsMobile(mobile);
+    setIsIOS(ios);
+
+    // ✅ SDK는 이미 Home.tsx에서 로드되므로 여기선 초기화만 확인
+    if (window.Kakao?.isInitialized()) {
+      setKakaoReady(true);
+    }
   }, []);
 
+  const handleKakaoNavi = () => {
+    if (!kakaoReady || !window.Kakao?.Navi) {
+      alert("카카오내비를 실행할 수 없습니다.");
+      return;
+    }
+
+    window.Kakao.Navi.start({
+      name,
+      x: lng,
+      y: lat,
+      coordType: "wgs84",
+    });
+  };
+
   const openLink = (appUrl: string, fallbackUrl: string) => {
-    if (!isMobile || linkOpened) return;
-
-    linkOpened = true;
-
     const now = Date.now();
     window.location.href = appUrl;
-
     setTimeout(() => {
       const elapsed = Date.now() - now;
       if (document.visibilityState === "visible" && elapsed < 1500) {
         window.location.href = fallbackUrl;
       }
-      linkOpened = false;
     }, 1200);
   };
 
@@ -62,30 +84,22 @@ export default function DestinationNavigator({
     openLink(appUrl, fallbackUrl);
   };
 
-  const handleKakaoMap = () => {
-    const appUrl = `kakaomap://route?ep=${lat},${lng}&by=CAR`;
-    const fallbackUrl = isIOS
-      ? "https://apps.apple.com/kr/app/id304608425"
-      : "https://play.google.com/store/apps/details?id=net.daum.android.map";
-    openLink(appUrl, fallbackUrl);
-  };
-
   return (
-    <>
+    <div className="navigators">
       <Button size="small" className="tmap" onClick={handleTmap}>
         <Image src="/icon_tmap.png" width={13} height={13} alt="icon" />
         티맵
       </Button>
 
-      <Button size="small" className="kakao" onClick={handleKakaoMap}>
-        <Image src="/icon_kakao.png" width={12} height={17} alt="icon" />
-        카카오맵
+      <Button size="small" className="kakao" onClick={handleKakaoNavi}>
+        <Image src="/icon_kakao.png" width={15} height={15} alt="icon" />
+        카카오내비
       </Button>
 
       <Button size="small" className="naver" onClick={handleNaver}>
         <Image src="/icon_naver.png" width={15} height={15} alt="icon" />
         네이버지도
       </Button>
-    </>
+    </div>
   );
 }
