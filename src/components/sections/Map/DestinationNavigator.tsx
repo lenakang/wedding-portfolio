@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/form";
 import Image from "next/image";
-
-type NavigatorProps = {
-  lat: number;
-  lng: number;
-  name: string;
-};
+import {
+  handleTmap,
+  handleNaver,
+  handleKakaoNavi,
+  isMobileDevice,
+  isIOSDevice,
+  NavigatorProps,
+} from "@/utils/navigationHandlers";
 
 declare global {
   interface Window {
@@ -37,15 +39,11 @@ export default function DestinationNavigator({
   const [kakaoReady, setKakaoReady] = useState(false);
 
   useEffect(() => {
-    const userAgent = navigator.userAgent;
-    const mobile = /Android|iPhone|iPad|iPod/i.test(userAgent);
-    const ios = /iPhone|iPad|iPod/i.test(userAgent);
-
-    setIsMobile(mobile);
-    setIsIOS(ios);
+    setIsMobile(isMobileDevice());
+    setIsIOS(isIOSDevice());
 
     const checkReady = setInterval(() => {
-      if (typeof window.Kakao?.Navi?.start === "function") {
+      if (!kakaoReady || !window.Kakao?.Navi?.start) {
         setKakaoReady(true);
         clearInterval(checkReady);
       }
@@ -54,80 +52,38 @@ export default function DestinationNavigator({
     return () => clearInterval(checkReady);
   }, []);
 
-  const handleKakaoNavi = () => {
-    if (!isMobile) {
-      alert("카카오내비는 모바일 기기에서만 사용할 수 있습니다.");
-      return;
-    }
-
-    if (!kakaoReady || !window.Kakao?.Navi?.start) {
-      alert("카카오내비를 실행할 수 없습니다.");
-      return;
-    }
-
-    window.Kakao.Navi.start({
-      name,
-      x: lng,
-      y: lat,
-      coordType: "wgs84",
-    });
-  };
-
-  const openLink = (appUrl: string, fallbackUrl: string) => {
-    if (!isMobile) {
-      alert("이 기능은 모바일 기기에서만 사용할 수 있습니다.");
-      return;
-    }
-
-    const now = Date.now();
-    window.location.href = appUrl;
-
-    setTimeout(() => {
-      const elapsed = Date.now() - now;
-      if (document.visibilityState === "visible" && elapsed < 1500) {
-        window.location.href = fallbackUrl;
-      }
-    }, 1200);
-  };
-
-  const handleTmap = () => {
-    const appUrl = `tmap://route?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(
-      name
-    )}`;
-    const fallbackUrl = isIOS
-      ? "https://apps.apple.com/kr/app/tmap-%ED%8B%B0%EB%A7%B5/id431589174"
-      : "https://play.google.com/store/apps/details?id=com.skt.tmap.ku";
-    openLink(appUrl, fallbackUrl);
-  };
-
-  const handleNaver = () => {
-    const appUrl = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
-      name
-    )}&appname=com.example.app`;
-    const fallbackUrl = isIOS
-      ? "https://apps.apple.com/kr/app/id311867728"
-      : "https://play.google.com/store/apps/details?id=com.nhn.android.nmap";
-    openLink(appUrl, fallbackUrl);
-  };
+  const navigatorProps = { lat, lng, name };
 
   return (
     <div className="navigators">
-      <Button size="small" className="tmap" onClick={handleTmap}>
+      <Button
+        size="small"
+        className="tmap"
+        onClick={() => handleTmap(isMobile, isIOS, navigatorProps)}
+      >
         <Image src="/icon_tmap.png" width={13} height={13} alt="티맵 아이콘" />
         티맵
       </Button>
 
-      <Button size="small" className="kakaonavi" onClick={handleKakaoNavi}>
+      <Button
+        size="small"
+        className="kakao"
+        onClick={() => handleKakaoNavi(isMobile, kakaoReady, navigatorProps)}
+      >
         <Image
-          src="/icon_kakaonavi.png"
-          width={15}
-          height={15}
-          alt="카카오내비 아이콘"
+          src="/icon_kakao.png"
+          width={12}
+          height={17}
+          alt="카카오네비 아이콘"
         />
-        카카오내비
+        카카오네비
       </Button>
 
-      <Button size="small" className="naver" onClick={handleNaver}>
+      <Button
+        size="small"
+        className="naver"
+        onClick={() => handleNaver(isMobile, isIOS, navigatorProps)}
+      >
         <Image
           src="/icon_naver.png"
           width={15}
