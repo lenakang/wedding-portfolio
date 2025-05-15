@@ -10,15 +10,6 @@
 }
 
 /* Dark mode preference */
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-        /* Uncomment below to enable dark theme override
-    --background: #443017;
-    --foreground: #f0eee2;
-    */
-    }
-}
 
 /* ========== Base Reset ========== */
 * {
@@ -273,6 +264,7 @@ button {
     line-height: 1.5em;
     text-transform: none;
     font-weight: normal;
+    color: #443017;
     border-radius: 0 !important;
     border-top: 0 !important;
     border-left: 0 !important;
@@ -287,6 +279,7 @@ button {
 .form-input textarea {
     min-height: 8rem;
     font-size: 1.6rem;
+    color: #443017;
     border: 1px solid rgba(68, 48, 23, 0.3);
     letter-spacing: 0em;
     word-spacing: 0em;

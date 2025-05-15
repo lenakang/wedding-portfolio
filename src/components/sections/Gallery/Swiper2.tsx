@@ -6,7 +6,7 @@ import Image from "next/image";
 import "./style.scss";
 
 const images = Array.from(
-    { length: 7 },
+    { length: 8 },
     (_, i) => `/gallery_swiper_${i + 1}.jpg`
 );
 
@@ -38,14 +38,18 @@ export default function Swiper2() {
             >
                 {images.map((src, idx) => (
                     <SwiperSlide key={`slide-${idx}`}>
-                        <div className="img">
-                            <Image
-                                src={src}
-                                alt={`Slide ${idx + 1}`}
-                                fill
-                                loading={idx === 0 ? "eager" : "lazy"}
-                                priority={idx === 0}
-                            />
+                        <div className="swiper-zoom-container">
+                            <div className="zoom-wrapper">
+                                <Image
+                                    src={src}
+                                    alt={`Slide ${idx + 1}`}
+                                    fill
+                                    sizes="100vw"
+                                    loading={idx === 0 ? "eager" : "lazy"}
+                                    priority={idx === 0}
+                                    style={{ objectFit: "cover" }}
+                                />
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

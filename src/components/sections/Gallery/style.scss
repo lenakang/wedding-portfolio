@@ -97,7 +97,7 @@
             font-size: 1rem;
             letter-spacing: 1.8px;
             text-transform: uppercase;
-            font-family: "Hanken Grotesk";
+            font-family: "Hanken Grotesk", "Pretendard";
             font-weight: 600;
             border-bottom: 1px solid var(--foreground);
             padding-bottom: 1rem;
@@ -139,23 +139,21 @@
         .swiper-wrapper {
             margin-top: 1rem;
 
-            .img {
-                position: relative;
+            .swiper-zoom-container {
                 width: 100%;
                 aspect-ratio: 1;
-
-                h1 {
-                    font-size: 2rem;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: #fff;
-                    z-index: 1;
-                }
+                position: relative;
+                overflow: hidden;
 
                 img {
                     object-fit: cover;
                 }
+            }
+
+            .zoom-wrapper {
+                width: 100%;
+                height: 100%;
+                position: relative;
             }
         }
 

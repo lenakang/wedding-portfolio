@@ -75,8 +75,8 @@ export default function List() {
                         key={guest.id}
                         src={`/notes_${note.type}.png`}
                         alt={`note-${note.type}`}
-                        width={15}
-                        height={15}
+                        width={20}
+                        height={20}
                         className={styles.notes}
                         style={{
                             top: `${note.top}%`,

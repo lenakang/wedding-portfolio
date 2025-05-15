@@ -59,10 +59,12 @@ export default function GuestBook() {
                 >
                     <span> ALL THE LOVE ◝ TESTIMONIALS ◟ </span>
                 </Marquee>
-                <h3 data-aos="my-fade-up">방명록</h3>
+                <h3 data-aos="my-fade-up">비밀 방명록</h3>
                 <p data-aos="my-fade-up">
                     따뜻한 마음이 담긴 축하의 글을 남겨주세요. <br />
-                    여러분의 메시지는 신랑 신부에게만 전달됩니다. <br />
+                    여러분의 메시지는{" "}
+                    <span className="underline">신랑 신부에게만</span>{" "}
+                    전달됩니다. <br />
                     진심 어린 마음, 소중히 간직하겠습니다. <br />
                     <br />
                     <span>쪽지를 써서 우리의 벽을 함께 꾸며주세요. 🤍</span>
