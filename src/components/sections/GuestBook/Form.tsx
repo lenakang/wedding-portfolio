@@ -14,6 +14,7 @@ import { db } from "@/lib/firebase";
 import { Button } from "@/components/form";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
+import Spinner from "@/components/common/Spinner";
 
 type FormValues = {
     name: string;
@@ -29,6 +30,9 @@ interface FormProps {
 export default function Form({ setIsOpen, mode = "write" }: FormProps) {
     const [docId, setDocId] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState<"write" | "edit" | "delete" | null>(
+        null
+    );
 
     const { register, handleSubmit, reset, getValues } = useForm<FormValues>({
         defaultValues: {
@@ -61,6 +65,7 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
             return;
 
         try {
+            setLoading("write");
             const guestRef = collection(db, "guest");
             const docRef = await addDoc(guestRef, {
                 name: data.name,
@@ -81,6 +86,8 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
                     ? error.message
                     : "쪽지 저장 중 오류가 발생했습니다."
             );
+        } finally {
+            setLoading(null);
         }
     };
 
@@ -107,6 +114,7 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
         if (!confirmEdit) return;
 
         try {
+            setLoading("edit");
             const docRef = doc(db, "guest", docId);
             await updateDoc(docRef, {
                 name: data.name,
@@ -123,6 +131,8 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
                     ? error.message
                     : "수정 중 오류가 발생했습니다."
             );
+        } finally {
+            setLoading(null);
         }
     };
 
@@ -131,6 +141,7 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
         if (!confirmDelete || !docId) return;
 
         try {
+            setLoading("delete");
             await deleteDoc(doc(db, "guest", docId));
             localStorage.removeItem("guest_id");
             window.dispatchEvent(new Event("guest_written"));
@@ -143,6 +154,8 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
                     ? error.message
                     : "삭제 중 오류가 발생했습니다."
             );
+        } finally {
+            setLoading(null);
         }
     };
 
@@ -216,7 +229,9 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
             {mode === "write" ? (
                 <>
                     <div className={styles.form__actions}>
-                        <Button type="submit">전달하기</Button>
+                        <Button disabled={loading === "write"} type="submit">
+                            {loading === "write" ? <Spinner /> : "전달하기"}
+                        </Button>
                     </div>{" "}
                     <span className={styles.form__info}>
                         * 수정/삭제를 위해 <strong>이름</strong>과{" "}
@@ -225,11 +240,19 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
                 </>
             ) : (
                 <div className={styles.form__actions}>
-                    <Button type="button" onClick={handleEdit}>
-                        수정하기
+                    <Button
+                        disabled={loading === "edit"}
+                        type="button"
+                        onClick={handleEdit}
+                    >
+                        {loading === "edit" ? <Spinner /> : "수정하기"}
                     </Button>
-                    <Button type="button" onClick={handleDelete}>
-                        삭제하기
+                    <Button
+                        disabled={loading === "delete"}
+                        type="button"
+                        onClick={handleDelete}
+                    >
+                        {loading === "delete" ? <Spinner /> : "삭제하기"}
                     </Button>
                 </div>
             )}

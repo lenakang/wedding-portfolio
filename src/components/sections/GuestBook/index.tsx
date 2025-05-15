@@ -10,6 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/form";
 import ContactPopup from "./Popup";
+import Marquee from "react-fast-marquee";
 
 const MAX_GUESTS = 50;
 
@@ -51,6 +52,13 @@ export default function GuestBook() {
     return (
         <div className={styles.guestBook}>
             <div className={styles.guestBook__title}>
+                <Marquee
+                    className={styles.guestBook__marquee}
+                    gradient={false}
+                    speed={30}
+                >
+                    <span> ALL THE LOVE ◝ TESTIMONIALS ◟ </span>
+                </Marquee>
                 <h3 data-aos="my-fade-up">방명록</h3>
                 <p data-aos="my-fade-up">
                     따뜻한 마음이 담긴 축하의 글을 남겨주세요. <br />
@@ -96,7 +104,7 @@ export default function GuestBook() {
                 ) : guestCount >= MAX_GUESTS ? (
                     <p className={styles.closed}>방명록이 마감되었습니다 🤍</p>
                 ) : (
-                    <div className={styles.contact} data-aos="my-fade-up">
+                    <div className={styles.contact}>
                         <Button
                             onClick={() => {
                                 setShowNote(false);
