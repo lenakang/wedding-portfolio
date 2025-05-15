@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./styles.module.scss";
 
 export default function index() {
@@ -11,6 +12,14 @@ export default function index() {
                 <br />
                 신랑 위대승 · 신부 강나래
             </p>
+            <div className={styles.thanks__img}>
+                <Image
+                    src="/thanks_1.jpg"
+                    fill
+                    alt="couple"
+                    className={styles.img}
+                />
+            </div>
         </div>
     );
 }
