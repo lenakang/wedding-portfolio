@@ -18,6 +18,7 @@
     "react": "^19.0.0",
     "react-day-picker": "^9.6.7",
     "react-dom": "^19.0.0",
+    "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.56.3",
     "sass": "^1.87.0",
     "swiper": "^11.2.6"
