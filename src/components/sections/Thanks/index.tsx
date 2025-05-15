@@ -12,14 +12,13 @@ export default function index() {
                 <br />
                 신랑 위대승 · 신부 강나래
             </p>
-            <div className={styles.thanks__img}>
-                <Image
-                    src="/thanks_1.jpg"
-                    fill
-                    alt="couple"
-                    className={styles.img}
-                />
-            </div>
+            <Image
+                src="/thanks_1.jpg"
+                width={2700}
+                height={1800}
+                alt="couple"
+                className={styles.img}
+            />
         </div>
     );
 }
