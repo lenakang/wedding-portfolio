@@ -254,7 +254,7 @@ button {
     display: flex;
     flex-direction: column;
     font-family: "Hanken Grotesk", "Pretendard", sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #443017;
 }
 .form-input svg {
@@ -273,6 +273,7 @@ button {
     line-height: 1.5em;
     text-transform: none;
     font-weight: normal;
+    border-radius: 0 !important;
     border-top: 0 !important;
     border-left: 0 !important;
     border-right: 0 !important;
@@ -280,7 +281,7 @@ button {
     border-bottom: 1px solid rgba(68, 48, 23, 0.3) !important;
 }
 .form-input input::placeholder {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #443017;
 }
 .form-input textarea {
