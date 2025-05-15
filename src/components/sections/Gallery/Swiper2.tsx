@@ -45,7 +45,6 @@ export default function Swiper2() {
                                 fill
                                 loading={idx === 0 ? "eager" : "lazy"}
                                 priority={idx === 0}
-                                placeholder="blur"
                             />
                         </div>
                     </SwiperSlide>
