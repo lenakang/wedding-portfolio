@@ -39,7 +39,14 @@ export default function Swiper2() {
                 {images.map((src, idx) => (
                     <SwiperSlide key={`slide-${idx}`}>
                         <div className="img">
-                            <Image src={src} alt={`Slide ${idx + 1}`} fill />
+                            <Image
+                                src={src}
+                                alt={`Slide ${idx + 1}`}
+                                fill
+                                loading={idx === 0 ? "eager" : "lazy"}
+                                priority={idx === 0}
+                                placeholder="blur"
+                            />
                         </div>
                     </SwiperSlide>
                 ))}
