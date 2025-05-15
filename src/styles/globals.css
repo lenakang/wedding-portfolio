@@ -240,3 +240,66 @@ button {
     color: var(--highlight2);
     font-weight: 600;
 }
+
+input,
+textarea,
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.form-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: "Hanken Grotesk", "Pretendard", sans-serif;
+    font-size: 1.4rem;
+    color: #443017;
+}
+.form-input svg {
+    width: 2rem;
+    color: #443017;
+}
+.form-input label {
+    padding: 2rem 0rem 0.8rem 0;
+}
+.form-input input {
+    padding: 2rem 0rem 0.8rem 0;
+    text-align: left;
+
+    letter-spacing: -0.2px;
+    word-spacing: 0em;
+    line-height: 1.5em;
+    text-transform: none;
+    font-weight: normal;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+
+    border-bottom: 1px solid rgba(68, 48, 23, 0.3) !important;
+}
+.form-input input::placeholder {
+    font-size: 1.4rem;
+    color: #443017;
+}
+.form-input textarea {
+    min-height: 8rem;
+    border: 1px solid rgba(68, 48, 23, 0.3);
+    letter-spacing: 0em;
+    word-spacing: 0em;
+    line-height: 1.5;
+    text-transform: none;
+    font-weight: normal;
+    padding: 0.6rem;
+    text-align: left;
+    font-family: "Hanken Grotesk", "Pretendard", sans-serif;
+}
+.form-input textarea::placeholder {
+    color: #443017;
+}
+.form-input .form-eye {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0;
+}

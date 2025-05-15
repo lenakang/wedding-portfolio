@@ -12,8 +12,8 @@ export default function Index() {
     return (
         <section className={styles.account}>
             <div className={styles.account__person}>
-                <h3>마음 전하실 곳</h3>
-                <p>
+                <h3 data-aos="my-fade-up">마음 전하실 곳</h3>
+                <p data-aos="my-fade-up">
                     축하의 마음을 전하고 싶지만 <br />
                     직접 찾아오시기 어려운 분들을 위해, <br />
                     마음을 전하실 수 있는 계좌 정보를 안내드립니다. <br />

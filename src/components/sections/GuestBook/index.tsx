@@ -2,18 +2,20 @@
 
 import { useEffect, useState } from "react";
 import List from "./List";
-import Form from "./Form";
-import MyNote from "./MyNote";
 import FindNote from "./FindNote";
 import { useGuests } from "@/utils/useGuests";
 import { useGuestCount } from "@/utils/useGuestCount";
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import styles from "./styles.module.scss";
+import { Button } from "@/components/form";
+import ContactPopup from "./Popup";
 
-const MAX_GUESTS = 30;
+const MAX_GUESTS = 50;
 
 export default function GuestBook() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [mode, setMode] = useState<"write" | "view">("write");
     const guests = useGuests();
     const guestCount = useGuestCount();
     const [hasWritten, setHasWritten] = useState<"loading" | true | false>(
@@ -27,11 +29,15 @@ export default function GuestBook() {
             const id = localStorage.getItem("guest_id");
             if (!id) {
                 setHasWritten(false);
+                setShowNote(false);
                 return;
             }
 
             const snap = await getDoc(doc(db, "guest", id));
             setHasWritten(snap.exists() ? true : false);
+            if (!snap.exists()) {
+                setShowNote(false);
+            }
         };
 
         checkGuest();
@@ -44,48 +50,67 @@ export default function GuestBook() {
 
     return (
         <div className={styles.guestBook}>
-            <h3>방명록</h3>
+            <div className={styles.guestBook__title}>
+                <h3 data-aos="my-fade-up">방명록</h3>
+                <p data-aos="my-fade-up">
+                    따뜻한 마음이 담긴 축하의 글을 남겨주세요. <br />
+                    여러분의 메시지는 신랑 신부에게만 전달됩니다. <br />
+                    진심 어린 마음, 소중히 간직하겠습니다. <br />
+                    <br />
+                    <span>쪽지를 써서 우리의 벽을 함께 꾸며주세요. 🤍</span>
+                </p>
+            </div>
+            <div className={styles.guestBook__content} data-aos="my-fade-up">
+                {showFind && <FindNote onClose={() => setShowFind(false)} />}
 
-            {guests.length > 0 && !showFind && (
-                <button
-                    type="button"
-                    onClick={() => setShowFind(true)}
-                    className={styles.findNoteButton}
-                >
-                    내 쪽지 찾기
-                </button>
-            )}
-            {showFind && <FindNote onClose={() => setShowFind(false)} />}
-
-            <List />
-
-            {hasWritten ? (
-                <div className={styles.thankyou}>
-                    <p>감사합니다 🤍</p>
-
-                    {/* 내 쪽지 보기 버튼 */}
-                    {!showNote && (
-                        <button
-                            className={styles.myNoteButton}
-                            onClick={() => setShowNote(true)}
-                        >
-                            내 쪽지 확인하기
-                        </button>
-                    )}
-                    {showNote && <MyNote />}
-
-                    {/* ✅ 내가 마지막으로 썼고 방명록도 마감 상태면 같이 표시 */}
-                    {guestCount >= MAX_GUESTS && (
-                        <p className={styles.closed}>
-                            방명록이 마감되었습니다 🤍
+                <List />
+                <span className={styles.noteCount}>
+                    {guests.length} / {MAX_GUESTS}
+                </span>
+                {hasWritten ? (
+                    <div className={styles.contact}>
+                        <p>
+                            감사합니다.
+                            {guestCount >= MAX_GUESTS && (
+                                <p className={styles.closed}>
+                                    방명록이 마감되었습니다 🤍
+                                </p>
+                            )}
                         </p>
-                    )}
-                </div>
-            ) : guestCount >= MAX_GUESTS ? (
-                <p className={styles.closed}>방명록이 마감되었습니다 🤍</p>
-            ) : (
-                <Form />
-            )}
+
+                        {!showNote && (
+                            <Button
+                                className={styles.myNoteButton}
+                                onClick={() => {
+                                    setMode("view");
+                                    setIsOpen(true);
+                                }}
+                            >
+                                내 쪽지 확인하기
+                            </Button>
+                        )}
+                        {showNote && (
+                            <ContactPopup setIsOpen={setShowNote} mode="view" />
+                        )}
+                    </div>
+                ) : guestCount >= MAX_GUESTS ? (
+                    <p className={styles.closed}>방명록이 마감되었습니다 🤍</p>
+                ) : (
+                    <div className={styles.contact} data-aos="my-fade-up">
+                        <Button
+                            onClick={() => {
+                                setShowNote(false);
+                                setMode("write");
+                                setIsOpen(true);
+                            }}
+                        >
+                            방명록 남기기
+                        </Button>
+                    </div>
+                )}
+            </div>
+
+            {isOpen && <ContactPopup setIsOpen={setIsOpen} mode={mode} />}
         </div>
     );
 }

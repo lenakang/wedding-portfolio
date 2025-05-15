@@ -17,6 +17,8 @@ export default function Popup({
     const backdropRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (!backdropRef.current || !contentRef.current) return;
+
         const tl = gsap.timeline();
         tl.fromTo(
             backdropRef.current,

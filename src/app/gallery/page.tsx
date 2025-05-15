@@ -10,10 +10,16 @@ const images = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(
 
 export default function Page() {
     const router = useRouter();
+
+    const handleClick = () => {
+        sessionStorage.setItem("scrollTo", "gallery");
+        router.push("/");
+    };
+
     return (
         <div className="gallery_more">
             <h3 className="gallery_more__nav">
-                <button onClick={() => router.push("/?scrollTo=gallery")}>
+                <button onClick={handleClick}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

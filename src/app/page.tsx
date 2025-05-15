@@ -14,6 +14,7 @@ import {
     Map,
     Account,
     GuestBook,
+    Thanks,
 } from "@/components/sections";
 import Script from "next/script";
 
@@ -62,6 +63,7 @@ export default function Home() {
                 <Map />
                 <Account />
                 <GuestBook />
+                <Thanks />
                 <footer className="footer">
                     © 2025 Narae Kang. All rights reserved.
                 </footer>

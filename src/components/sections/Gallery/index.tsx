@@ -5,8 +5,19 @@ import "swiper/css/effect-fade";
 import Link from "next/link";
 import Swiper1 from "./Swiper1";
 import Swiper2 from "./Swiper2";
+import { useEffect } from "react";
 
 export default function Index() {
+    useEffect(() => {
+        const targetId = sessionStorage.getItem("scrollTo");
+        if (targetId) {
+            const el = document.getElementById(targetId);
+            if (el) {
+                el.scrollIntoView();
+            }
+        }
+    }, []);
+
     return (
         <div className="gallery">
             <span className="tag" data-aos="my-fade-up">
