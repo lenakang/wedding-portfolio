@@ -1,38 +1,30 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-    EffectFade,
-    Navigation,
-    Autoplay,
-    Pagination,
-    Zoom,
-} from "swiper/modules";
+import { Navigation, Autoplay, Pagination, Zoom } from "swiper/modules";
 import Image from "next/image";
 import "./style.scss";
 
-const images2 = [1, 2].map((each) => `/gallery_${each}.jpg`);
-const images = [1, 2, 3, 4, 5, 6, 7, 8].map(
-    (img) => `/gallery_more_${img}.jpg`
+const images = Array.from(
+    { length: 7 },
+    (_, i) => `/gallery_swiper_${i + 1}.jpg`
 );
-const allImgs = images2.concat(images);
 
 export default function Swiper2() {
     return (
         <>
             <Swiper
                 className="gallery__present_swiper"
-                modules={[EffectFade, Navigation, Autoplay, Pagination, Zoom]}
-                effect="fade"
-                fadeEffect={{ crossFade: false }}
+                modules={[Navigation, Autoplay, Pagination, Zoom]}
                 slidesPerView={1}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
                 }}
                 zoom={{
-                    maxRatio: 2, // 2배 확대
+                    maxRatio: 2,
                 }}
+                speed={800}
                 loop
                 allowTouchMove={true}
                 pagination={{
@@ -44,7 +36,7 @@ export default function Swiper2() {
                     nextEl: ".next",
                 }}
             >
-                {allImgs.map((src, idx) => (
+                {images.map((src, idx) => (
                     <SwiperSlide key={`slide-${idx}`}>
                         <div className="img">
                             <Image src={src} alt={`Slide ${idx + 1}`} fill />

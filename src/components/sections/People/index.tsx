@@ -28,7 +28,12 @@ export default function Index() {
         <section className={styles.people}>
             <div className={styles.people__person}>
                 <div className={styles.people__person_img}>
-                    <Image src="/bride.jpg" fill alt="bride" sizes="50vw" />
+                    <Image
+                        src="/people_bride.jpg"
+                        fill
+                        alt="bride"
+                        sizes="50vw"
+                    />
                 </div>
                 <div className={styles.people__person_desc}>
                     <div
@@ -49,7 +54,12 @@ export default function Index() {
             </div>
             <div className={`${styles.people__person} ${styles.reverse}`}>
                 <div className={styles.people__person_img}>
-                    <Image src="/groom.jpg" fill alt="groom" sizes="50vw" />
+                    <Image
+                        src="/people_groom.jpg"
+                        fill
+                        alt="groom"
+                        sizes="50vw"
+                    />
                 </div>
                 <div className={styles.people__person_desc}>
                     <div

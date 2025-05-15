@@ -3,7 +3,7 @@ import { EffectFade, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "./style.scss";
 
-const images = ["/img_DM.jpg", "/img2_m.jpg"];
+const images = ["/gallery_baby_b.jpg", "/gallery_baby_g.jpg"];
 
 export default function Swiper1() {
     return (

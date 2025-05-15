@@ -226,7 +226,7 @@ button {
 }
 
 .read-only-calendar .rdp-selected {
-    background: url("/heart.png") center 8px / 34px auto no-repeat;
+    background: url("/icon_heart.png") center 8px / 34px auto no-repeat;
 }
 .read-only-calendar .rdp-selected button {
     border: none;
