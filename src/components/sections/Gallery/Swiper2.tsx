@@ -25,7 +25,8 @@ export default function Swiper2() {
                 loop
                 allowTouchMove={true}
                 pagination={{
-                    type: "fraction",
+                    type: "bullets",
+                    clickable: true,
                     el: ".swiper2-pagination",
                 }}
                 navigation={{
@@ -41,7 +42,7 @@ export default function Swiper2() {
                                     src={src}
                                     alt={`Slide ${idx + 1}`}
                                     fill
-                                    sizes="100vw"
+                                    sizes="(max-width: 768px) 100vw, 768px"
                                     loading={idx <= 2 ? "eager" : "lazy"}
                                     priority={idx <= 2}
                                 />

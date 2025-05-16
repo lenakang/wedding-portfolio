@@ -30,7 +30,12 @@ export default function Swiper1() {
                 {images.map((src, idx) => (
                     <SwiperSlide key={`slide-${idx}`}>
                         <div className="img">
-                            <Image src={src} alt={`Slide ${idx + 1}`} fill />
+                            <Image
+                                src={src}
+                                alt={`Slide ${idx + 1}`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 768px"
+                            />
                         </div>
                     </SwiperSlide>
                 ))}

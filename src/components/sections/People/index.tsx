@@ -32,7 +32,7 @@ export default function Index() {
                         src="/people_bride.jpg"
                         fill
                         alt="bride"
-                        sizes="50vw"
+                        sizes="(max-width: 768px) 50vw, 768px"
                     />
                 </div>
                 <div className={styles.people__person_desc}>
@@ -58,7 +58,7 @@ export default function Index() {
                         src="/people_groom.jpg"
                         fill
                         alt="groom"
-                        sizes="50vw"
+                        sizes="(max-width: 768px) 50vw, 768px"
                     />
                 </div>
                 <div className={styles.people__person_desc}>

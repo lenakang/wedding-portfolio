@@ -166,10 +166,34 @@
             font-size: 1.2rem;
             font-weight: 400;
             color: #555;
-            margin-top: 0.5rem;
+            //margin-top: 0.5rem;
             font-family: "Hanken Grotesk";
             letter-spacing: -0.1rem;
             font-weight: 600;
+        }
+    }
+}
+
+// bullet 변경
+.swiper2-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .swiper-pagination-bullet {
+        width: 4px;
+        height: 4px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background-color: #b8a99a;
+        opacity: 1;
+        transition: background-color 0.3s;
+
+        &-active {
+            width: 5px;
+            height: 5px;
+            background-color: var(--foreground);
         }
     }
 }
