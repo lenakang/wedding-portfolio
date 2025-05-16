@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export default function KakaoShareButton() {
     useEffect(() => {
-        // Kakao SDK 로드 확인
         if (typeof window !== "undefined" && window.Kakao) {
             const kakao = window.Kakao;
 
