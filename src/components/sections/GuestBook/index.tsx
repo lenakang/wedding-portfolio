@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import List from "./List";
-import FindNote from "./FindNote";
 import { useGuests } from "@/utils/useGuests";
 import { useGuestCount } from "@/utils/useGuestCount";
 import { db } from "@/lib/firebase";
@@ -23,7 +22,6 @@ export default function GuestBook() {
         "loading"
     );
     const [showNote, setShowNote] = useState(false);
-    const [showFind, setShowFind] = useState(false);
 
     useEffect(() => {
         const checkGuest = async () => {
@@ -71,22 +69,18 @@ export default function GuestBook() {
                 </p>
             </div>
             <div className={styles.guestBook__content} data-aos="my-fade-up">
-                {showFind && <FindNote onClose={() => setShowFind(false)} />}
-
                 <List />
                 <span className={styles.noteCount}>
                     <strong>{guests.length}개</strong>의 쪽지가 붙어있습니다.
                 </span>
                 {hasWritten ? (
                     <div className={styles.contact}>
-                        <p>
-                            작성해주셔서 감사합니다.
-                            {guestCount >= MAX_GUESTS && (
-                                <p className={styles.closed}>
-                                    방명록이 마감되었습니다 🤍
-                                </p>
-                            )}
-                        </p>
+                        <p>작성해주셔서 감사합니다.</p>
+                        {guestCount >= MAX_GUESTS && (
+                            <p className={styles.closed}>
+                                방명록이 마감되었습니다 🤍
+                            </p>
+                        )}
 
                         {!showNote && (
                             <Button

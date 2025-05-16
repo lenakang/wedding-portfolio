@@ -252,6 +252,7 @@ button {
     font-size: 1.6rem;
     color: #443017;
 }
+
 .form-input svg {
     width: 2rem;
     color: #443017;
@@ -276,6 +277,9 @@ button {
 
     border-bottom: 1px solid rgba(68, 48, 23, 0.3) !important;
 }
+.form-input input:disabled {
+    color: #777;
+}
 .form-input input::placeholder {
     font-size: 1.6rem;
     color: #443017;
@@ -296,9 +300,4 @@ button {
 }
 .form-input textarea::placeholder {
     color: #443017;
-}
-.form-input .form-eye {
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0;
 }
