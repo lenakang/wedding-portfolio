@@ -35,6 +35,7 @@ body {
     max-width: 768px;
     margin: 0 auto;
     overflow-x: hidden;
+    word-break: keep-all;
 }
 
 /* ========== Typography ========== */
@@ -193,6 +194,7 @@ button {
     cursor: default;
     font-size: 1.4rem;
     opacity: 0.8;
+    height: 3rem;
 }
 
 .read-only-calendar .rdp-day:hover {
@@ -213,7 +215,7 @@ button {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -1.5rem;
+    bottom: -2rem;
     min-width: 50px;
 }
 
@@ -222,7 +224,7 @@ button {
 }
 
 .read-only-calendar .rdp-selected {
-    background: url("/icon_heart.png") center 8px / 34px auto no-repeat;
+    background: url("/icon_heart.png") center 0 / 34px auto no-repeat;
 }
 .read-only-calendar .rdp-selected button {
     border: none;

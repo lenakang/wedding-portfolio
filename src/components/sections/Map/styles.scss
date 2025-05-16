@@ -85,6 +85,7 @@
             margin-top: 2rem;
 
             > button {
+                flex: 1 1 auto;
                 width: calc((100% - 2rem) / 3);
                 max-width: 150px;
             }
@@ -97,16 +98,20 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
+
         dl {
             font-family: "Pretendard";
+
             dt {
                 font-weight: 500;
                 margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
 
                 svg {
                     width: 1.3rem;
                     margin-right: 1rem;
-                    transform: translateY(1px);
+                    transform: translateY(-1px);
                 }
             }
 
