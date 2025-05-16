@@ -8,8 +8,14 @@ $header-padding: 0 2rem;
     width: 100%;
     height: var(--header_height);
     background-color: var(--background);
-    transition: background-color 0.4s ease, visibility 0.4s ease;
+    will-change: transform;
+    transition: all 0.4s ease, visibility 0.4s ease;
     z-index: 100;
+
+    &.header__top {
+        position: relative;
+        height: var(--header_height);
+    }
 
     .title {
         @include flex-between;

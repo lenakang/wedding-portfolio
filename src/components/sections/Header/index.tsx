@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MENU_LIST } from "@/constants/menu";
 import Link from "next/link";
 import classNames from "classnames";
@@ -10,12 +10,24 @@ import Image from "next/image";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const [isTop, setIsTop] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsTop(window.scrollY <= 0);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <header
             className={classNames(styles.header, {
                 [styles.header__open]: open,
                 [styles.header__closed]: !open,
+                [styles.header__top]: isTop,
             })}
         >
             <div className={styles.title}>

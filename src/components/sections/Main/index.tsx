@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
     About,
     Invite,
@@ -20,11 +20,22 @@ import Script from "next/script";
 import { MENU } from "@/constants/menu";
 
 export default function Main() {
+    const [isTop, setIsTop] = useState(true);
     useEffect(() => {
         AOS.init({
             duration: 1000,
             offset: 10,
         });
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsTop(window.scrollY <= 0);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
@@ -42,7 +53,7 @@ export default function Main() {
                     }
                 }}
             />
-            <main id={MENU.HOME} className="home">
+            <main id={MENU.HOME} className={`home ${isTop ? "home_top" : ""}`}>
                 <Hero />
                 <About />
                 <Invite />
