@@ -11,6 +11,7 @@ import { Button } from "@/components/form";
 import ContactPopup from "./Popup";
 import Marquee from "react-fast-marquee";
 import { MENU } from "@/constants/menu";
+import { trackClickEvent } from "@/utils/trackClickEvent";
 
 const MAX_GUESTS = 50;
 
@@ -87,6 +88,12 @@ export default function GuestBook() {
                             <Button
                                 className={styles.myNoteButton}
                                 onClick={() => {
+                                    trackClickEvent({
+                                        category: "guestbook",
+                                        label: "view",
+                                        location: "form",
+                                    });
+
                                     setMode("view");
                                     setIsOpen(true);
                                 }}

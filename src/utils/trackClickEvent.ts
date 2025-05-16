@@ -3,8 +3,10 @@ export type ClickCategory =
     | "account"
     | "contact"
     | "contact_detail"
-    | "navigation";
-export type ClickLocation = "main" | "popup" | "footer" | "header";
+    | "navigation"
+    | "guestbook";
+
+export type ClickLocation = "main" | "popup" | "footer" | "header" | "form";
 
 interface TrackClickEventParams {
     category: ClickCategory;

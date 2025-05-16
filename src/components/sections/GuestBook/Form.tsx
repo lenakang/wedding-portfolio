@@ -15,6 +15,7 @@ import { Button } from "@/components/form";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 import Spinner from "@/components/common/Spinner";
+import { trackClickEvent } from "@/utils/trackClickEvent";
 
 type FormValues = {
     name: string;
@@ -62,6 +63,13 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
 
         try {
             setLoading("write");
+
+            trackClickEvent({
+                category: "guestbook",
+                label: "submit",
+                location: "form",
+            });
+
             const guestRef = collection(db, "guest");
             const docRef = await addDoc(guestRef, {
                 name: data.name,
@@ -106,6 +114,13 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
 
         try {
             setLoading("edit");
+
+            trackClickEvent({
+                category: "guestbook",
+                label: "edit",
+                location: "form",
+            });
+
             const docRef = doc(db, "guest", docId);
             await updateDoc(docRef, {
                 content: data.content.slice(0, 80),
@@ -131,6 +146,13 @@ export default function Form({ setIsOpen, mode = "write" }: FormProps) {
 
         try {
             setLoading("delete");
+
+            trackClickEvent({
+                category: "guestbook",
+                label: "delete",
+                location: "form",
+            });
+
             await deleteDoc(doc(db, "guest", docId));
             localStorage.removeItem("guest_id");
             window.dispatchEvent(new Event("guest_written"));

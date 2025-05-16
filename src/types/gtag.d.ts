@@ -11,10 +11,11 @@ declare global {
         | "account"
         | "contact"
         | "contact_detail"
-        | "navigation";
-    type ClickLocation = "main" | "popup" | "footer" | "header";
+        | "navigation"
+        | "guestbook"; // ✅ 추가
 
-    // 일반 클릭 이벤트 파라미터 타입
+    type ClickLocation = "main" | "popup" | "footer" | "header" | "form"; // ✅ 추가
+
     interface GenericClickEventParams {
         event_category: ClickCategory;
         event_label: string;
@@ -22,7 +23,6 @@ declare global {
         page_location: string;
     }
 
-    // gtag 함수 타입 정의
     interface Gtag {
         (command: "js", config: Date): void;
         (
