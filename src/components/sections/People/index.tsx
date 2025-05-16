@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./styles.module.scss";
 import Popup from "./Popup";
 import { useState } from "react";
 import { Button } from "@/components/form";
+import { SHOULD_CHANGE } from "@/constants/information";
+import styles from "./styles.module.scss";
 
 export default function Index() {
     const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +49,7 @@ export default function Index() {
                                 <li key={i}>{word}</li>
                             ))}
                         </ul>
-                        <div>강인용 · 오미경의 장녀</div>
+                        <div>강인용 · {SHOULD_CHANGE.NAME}의 장녀</div>
                     </div>
                 </div>
             </div>

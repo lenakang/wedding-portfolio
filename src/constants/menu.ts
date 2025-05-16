@@ -10,10 +10,6 @@ export const MENU = {
 
 export const MENU_LIST = [
     {
-        id: MENU.HOME,
-        title: "메인",
-    },
-    {
         id: MENU.INVITE,
         title: "초대합니다",
     },

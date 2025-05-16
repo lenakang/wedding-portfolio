@@ -1,3 +1,5 @@
+import { SHOULD_CHANGE } from "@/constants/information";
+
 interface IContactList {
     title: string;
     name: string;
@@ -39,8 +41,8 @@ export const contactList: IContactList[] = [
     },
     {
         title: "신부 어머니",
-        name: "오미경",
-        number: "01036535089",
+        name: SHOULD_CHANGE.NAME,
+        number: SHOULD_CHANGE.PHONE,
     },
 ];
 
@@ -72,7 +74,7 @@ export const brideAccountList: IAccountList[] = [
     },
     {
         title: "신부 어머니",
-        name: "오미경",
-        number: "KB국민 223210553487",
+        name: SHOULD_CHANGE.NAME,
+        number: SHOULD_CHANGE.ACCOUNT,
     },
 ];

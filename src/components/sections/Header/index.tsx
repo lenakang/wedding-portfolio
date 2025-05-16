@@ -7,6 +7,7 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import scroll from "@/utils/scroll";
 import Image from "next/image";
+import shareKakao from "@/lib/shareKakao";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -64,6 +65,9 @@ export default function Header() {
                             </button>
                         </li>
                     ))}
+                    <li>
+                        <button onClick={shareKakao}>카카오톡 공유하기</button>
+                    </li>
                 </ul>
                 <div className={styles.menu_footer}>
                     <Image

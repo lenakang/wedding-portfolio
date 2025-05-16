@@ -19,6 +19,10 @@ declare global {
                     templateId: number;
                     templateArgs?: Record<string, string>;
                 }): void;
+                sendCustom(options: {
+                    templateId: number;
+                    templateArgs?: Record<string, string>;
+                }): void;
             };
         };
     }

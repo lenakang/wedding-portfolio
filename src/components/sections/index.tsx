@@ -10,3 +10,4 @@ export { default as Map } from "./Map";
 export { default as Account } from "./Account";
 export { default as GuestBook } from "./GuestBook";
 export { default as Thanks } from "./Thanks";
+export { default as Footer } from "./Footer";
