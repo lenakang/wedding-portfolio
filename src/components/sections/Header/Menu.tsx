@@ -1,4 +1,3 @@
-import { MENU_LIST } from "@/constants/menu";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
