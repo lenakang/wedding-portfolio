@@ -1,7 +1,6 @@
 import { Main } from "@/components/sections";
 import { Metadata } from "next";
 import AppScript from "./AppScript";
-import InitKakao from "./InitKakao";
 
 export const metadata: Metadata = {
     title: "나래❤️대승 결혼합니다.",
@@ -26,7 +25,6 @@ export default function Home() {
     return (
         <>
             <AppScript />
-            <InitKakao />
             <Main />
         </>
     );
