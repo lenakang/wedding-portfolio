@@ -2,6 +2,7 @@ import { Header, Main } from "@/components/sections";
 import { Metadata } from "next";
 import AppScript from "./AppScript";
 import "./page.scss";
+import KakaoShareButton from "@/components/form/KakaoShareButton";
 
 export const metadata: Metadata = {
     title: "나래❤️대승 결혼합니다.",
@@ -29,7 +30,7 @@ export default function Home() {
             <AppScript />
             <Main />
             <footer className="footer">
-                © 2025 Narae Kang. All rights reserved.
+                <KakaoShareButton />© 2025 Narae Kang. All rights reserved.
             </footer>
         </>
     );

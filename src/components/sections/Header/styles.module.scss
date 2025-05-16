@@ -4,8 +4,10 @@ $header-padding: 0 2rem;
 .header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
     width: 100%;
+    transform: translateX(-50%);
+    max-width: 768px;
     height: var(--header_height);
     background-color: var(--background);
     will-change: transform;
