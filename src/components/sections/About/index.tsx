@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
+import { MENU } from "@/constants/menu";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Typewriter from "@/utils/Typewriter/Typewriter";
+import Typewriter from "@/components/sections/About/Typewriter/Typewriter";
+import scroll from "@/utils/scroll";
 import styles from "./styles.module.scss";
-import { MENU } from "@/constants/menu";
 
 gsap.registerPlugin(ScrollTrigger); // ✅ ScrollTrigger 등록 (경고 제거)
 
@@ -82,15 +83,6 @@ export default function AboutSection() {
             );
         });
     }, []);
-
-    const scrollToMap = () => {
-        const anchor = document.getElementById(MENU.MAP);
-        if (anchor) {
-            window.scrollTo({
-                top: anchor.offsetTop,
-            });
-        }
-    };
 
     return (
         <section className={styles.about}>
@@ -260,7 +252,7 @@ export default function AboutSection() {
                     </div>
 
                     <button
-                        onClick={scrollToMap}
+                        onClick={() => scroll(MENU.MAP)}
                         className="tag underline"
                         data-aos="my-fade-up"
                     >

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import List from "./List";
-import { useGuests } from "@/utils/useGuests";
-import { useGuestCount } from "@/utils/useGuestCount";
+import { useGuests } from "@/hooks/useGuests";
+import { useGuestCount } from "@/hooks/useGuestCount";
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import styles from "./styles.module.scss";

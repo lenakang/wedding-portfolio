@@ -14,7 +14,7 @@ export default function NaverMap({ lat, lng, label }: NaverMapProps) {
 
         const center = new window.naver.maps.LatLng(lat, lng);
 
-        const map = new window.naver.maps.Map("map", {
+        const map = new window.naver.maps.Map("myNaverMap", {
             center,
             zoom: 17,
             scrollWheel: false,
@@ -39,5 +39,5 @@ export default function NaverMap({ lat, lng, label }: NaverMapProps) {
         return () => window.removeEventListener("resize", handleResize);
     }, [lat, lng, label]);
 
-    return <div id="map" className="naverDynamicMap" />;
+    return <div id="myNaverMap" className="naverDynamicMap" />;
 }

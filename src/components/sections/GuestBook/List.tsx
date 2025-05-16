@@ -1,6 +1,6 @@
 "use client";
 
-import { useGuests } from "@/utils/useGuests";
+import { useGuests } from "@/hooks/useGuests";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 

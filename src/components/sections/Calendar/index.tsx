@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { ko } from "date-fns/locale";
-import useCountdown from "@/utils/useCountdown";
+import useCountdown from "@/hooks/useCountdown";
 import "react-day-picker/dist/style.css";
 import styles from "./styles.module.scss";
 import { MENU } from "@/constants/menu";
