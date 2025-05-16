@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 
 export default function index() {
     return (
-        <div className={styles.thanks}>
+        <section className={styles.thanks}>
             <p data-aos="my-fade-up">
                 축복해 주시는 모든 분들께 깊이 감사드리며,
                 <br />
@@ -11,6 +11,6 @@ export default function index() {
                 <br />
                 <span>신랑 위대승 · 신부 강나래</span>
             </p>
-        </div>
+        </section>
     );
 }

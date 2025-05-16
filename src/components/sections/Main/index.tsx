@@ -17,6 +17,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./main.scss";
 import Script from "next/script";
+import { MENU } from "@/constants/menu";
 
 export default function Main() {
     useEffect(() => {
@@ -41,12 +42,7 @@ export default function Main() {
                     }
                 }}
             />
-            <main className="home">
-                <header className="header">
-                    <div>
-                        <h1>lena kang</h1>
-                    </div>
-                </header>
+            <main id={MENU.HOME} className="home">
                 <Hero />
                 <About />
                 <Invite />
@@ -57,9 +53,6 @@ export default function Main() {
                 <Account />
                 <GuestBook />
                 <Thanks />
-                <footer className="footer">
-                    © 2025 Narae Kang. All rights reserved.
-                </footer>
             </main>
         </>
     );

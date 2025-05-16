@@ -1,8 +1,9 @@
+import { MENU } from "@/constants/menu";
 import styles from "./styles.module.scss";
 
 export default function index() {
     return (
-        <section className={styles.begin}>
+        <section id={MENU.INVITE} className={styles.begin}>
             <div className="title-korean" data-aos="my-fade-up">
                 <span className="tag">invite you</span>
                 <h3>초대합니다</h3>

@@ -6,6 +6,7 @@ import { ko } from "date-fns/locale";
 import useCountdown from "@/utils/useCountdown";
 import "react-day-picker/dist/style.css";
 import styles from "./styles.module.scss";
+import { MENU } from "@/constants/menu";
 
 export default function CountdownBlock() {
     const targetDate = useMemo(() => {
@@ -28,7 +29,7 @@ export default function CountdownBlock() {
     if (!isClient) return null;
 
     return (
-        <div className={styles.calendar}>
+        <section id={MENU.CALENDAR} className={styles.calendar}>
             <h3 data-aos="my-fade-up">calendar</h3>
 
             <DayPicker
@@ -49,6 +50,6 @@ export default function CountdownBlock() {
                 <span>{hours}시간</span> <span>{minutes}분</span>{" "}
                 <span>{seconds}초</span>
             </div>
-        </div>
+        </section>
     );
 }

@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/form";
 import ContactPopup from "./Popup";
 import Marquee from "react-fast-marquee";
+import { MENU } from "@/constants/menu";
 
 const MAX_GUESTS = 50;
 
@@ -48,7 +49,7 @@ export default function GuestBook() {
     if (hasWritten === "loading" || guestCount === null) return null;
 
     return (
-        <div className={styles.guestBook}>
+        <section id={MENU.GUEST} className={styles.guestBook}>
             <div className={styles.guestBook__title}>
                 <Marquee
                     className={styles.guestBook__marquee}
@@ -115,6 +116,6 @@ export default function GuestBook() {
             </div>
 
             {isOpen && <ContactPopup setIsOpen={setIsOpen} mode={mode} />}
-        </div>
+        </section>
     );
 }

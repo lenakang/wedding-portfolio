@@ -4,21 +4,11 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import Swiper1 from "./Swiper1";
 import Swiper2 from "./Swiper2";
-import { useEffect } from "react";
+import { MENU } from "@/constants/menu";
 
 export default function Index() {
-    useEffect(() => {
-        const targetId = sessionStorage.getItem("scrollTo");
-        if (targetId) {
-            const el = document.getElementById(targetId);
-            if (el) {
-                el.scrollIntoView();
-            }
-        }
-    }, []);
-
     return (
-        <div className="gallery">
+        <section id={MENU.GALLERY} className="gallery">
             <span className="tag" data-aos="my-fade-up">
                 Then & Now
             </span>
@@ -42,6 +32,6 @@ export default function Index() {
                 </div>
                 <Swiper2 />
             </div>
-        </div>
+        </section>
     );
 }

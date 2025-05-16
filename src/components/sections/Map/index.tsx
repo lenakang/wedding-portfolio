@@ -1,5 +1,6 @@
 "use client";
 
+import { MENU } from "@/constants/menu";
 import CopyToClipboardButton from "./CopyToClipboardButton";
 import DestinationNavigator from "./DestinationNavigator";
 import NaverMap from "./NaverMap";
@@ -11,7 +12,7 @@ const name = "더컨벤션 신사";
 
 export default function Index() {
     return (
-        <div id="sectionMap" className="map">
+        <section id={MENU.MAP} className="map">
             <div className="title-korean" data-aos="my-fade-up">
                 <span className="tag">Map</span>
                 <h3>오시는 길</h3>
@@ -71,6 +72,6 @@ export default function Index() {
                     <dd>서울 강남구 강남대로 652 신사스퀘어</dd>
                 </dl>
             </div>
-        </div>
+        </section>
     );
 }

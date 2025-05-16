@@ -1,6 +1,7 @@
-import { Main } from "@/components/sections";
+import { Header, Main } from "@/components/sections";
 import { Metadata } from "next";
 import AppScript from "./AppScript";
+import "./page.scss";
 
 export const metadata: Metadata = {
     title: "나래❤️대승 결혼합니다.",
@@ -24,8 +25,12 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <>
+            <Header />
             <AppScript />
             <Main />
+            <footer className="footer">
+                © 2025 Narae Kang. All rights reserved.
+            </footer>
         </>
     );
 }

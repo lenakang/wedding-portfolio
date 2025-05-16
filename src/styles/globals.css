@@ -1,3 +1,4 @@
+@import url("./reset.css");
 @import url("./fonts.css");
 
 /* ========== Variables ========== */
@@ -6,7 +7,7 @@
     --background2: #ede8d6;
     --foreground: #443017;
     --highlight: #d7d2b4;
-    --accent: #f59ea5;
+    --header_height: 7rem;
 }
 
 /* Dark mode preference */

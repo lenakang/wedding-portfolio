@@ -5,12 +5,13 @@ import styles from "./styles.module.scss";
 import { Button } from "@/components/form";
 import Popup from "./Popup";
 import { groomAccountList, brideAccountList } from "@/data/contactList";
+import { MENU } from "@/constants/menu";
 
 export default function Index() {
     const [openType, setOpenType] = useState<"groom" | "bride" | null>(null);
 
     return (
-        <section className={styles.account}>
+        <section id={MENU.ACCOUNT} className={styles.account}>
             <div className={styles.account__person}>
                 <div className="title-korean" data-aos="my-fade-up">
                     <span className="tag">Information</span>
