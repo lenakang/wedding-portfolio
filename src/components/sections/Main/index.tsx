@@ -46,7 +46,7 @@ export default function Main() {
                         );
                     }
                 }}
-            />{" "}
+            />
             <main className="home">
                 <header className="header">
                     <div>

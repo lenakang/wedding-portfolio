@@ -38,7 +38,7 @@ export default function AboutSection() {
             },
         });
 
-        const interval = 0.8; // 간격
+        const interval = 0.6; // 간격
 
         steps.forEach((step, index) => {
             tl.to(
