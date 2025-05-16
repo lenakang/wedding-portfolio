@@ -1,7 +1,8 @@
 import { IAccountList } from "@/data/contactList";
+import { Button } from "@/components/form";
+import { trackClickEvent } from "@/utils/trackClickEvent";
 import Popup from "@/components/common/Popup";
 import styles from "@/components/common/Popup/styles.module.scss";
-import { Button } from "@/components/form";
 
 interface ContactPopupProps {
     setIsOpen: () => void;
@@ -31,6 +32,11 @@ export default function ContactPopup({ setIsOpen, list }: ContactPopupProps) {
                                 e.preventDefault();
                                 navigator.clipboard.writeText(person.number);
                                 alert("계좌번호가 복사되었습니다.");
+                                trackClickEvent({
+                                    category: "account",
+                                    label: person.name,
+                                    location: "popup",
+                                });
                             }}
                         >
                             {person.number}

@@ -2,8 +2,9 @@
 
 import { SHOULD_CHANGE } from "@/constants/information";
 import Popup from "@/components/common/Popup";
-import shareKakao from "@/lib/shareKakao";
+import { shareKakaoWithTracking } from "@/lib/shareKakaoWithTracking";
 import styles from "./styles.module.scss";
+import { trackClickEvent } from "@/utils/trackClickEvent";
 
 interface FooterPopup {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,7 +18,10 @@ export default function FooterPopup({ setIsOpen }: FooterPopup) {
             </div>
 
             <div className={styles.popup_content}>
-                <button onClick={shareKakao} className={styles.share_kakao}>
+                <button
+                    onClick={() => shareKakaoWithTracking("footer")}
+                    className={styles.share_kakao}
+                >
                     카카오톡 <br />
                     공유하기
                 </button>
@@ -26,6 +30,11 @@ export default function FooterPopup({ setIsOpen }: FooterPopup) {
                     onClick={() => {
                         navigator.clipboard.writeText(SHOULD_CHANGE.URL);
                         alert("URL이 복사되었습니다.");
+                        trackClickEvent({
+                            category: "share",
+                            label: "URL 복사",
+                            location: "footer",
+                        });
                     }}
                 >
                     <svg

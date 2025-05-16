@@ -11,6 +11,7 @@ import {
     isIOSDevice,
     NavigatorProps,
 } from "@/utils/navigationHandlers";
+import { trackClickEvent } from "@/utils/trackClickEvent";
 
 export default function DestinationNavigator({
     lat,
@@ -42,7 +43,14 @@ export default function DestinationNavigator({
             <Button
                 size="small"
                 className="tmap"
-                onClick={() => handleTmap(isMobile, isIOS, navigatorProps)}
+                onClick={() => {
+                    trackClickEvent({
+                        category: "navigation",
+                        label: "tmap",
+                        location: "main", // 또는 "popup" 등 위치에 맞게
+                    });
+                    handleTmap(isMobile, isIOS, navigatorProps);
+                }}
             >
                 <Image
                     src="/icon_tmap.png"
@@ -56,9 +64,14 @@ export default function DestinationNavigator({
             <Button
                 size="small"
                 className="kakao"
-                onClick={() =>
-                    handleKakaoNavi(isMobile, kakaoReady, navigatorProps)
-                }
+                onClick={() => {
+                    trackClickEvent({
+                        category: "navigation",
+                        label: "kakao_navi",
+                        location: "main",
+                    });
+                    handleKakaoNavi(isMobile, kakaoReady, navigatorProps);
+                }}
             >
                 <Image
                     src="/icon_kakao.png"
@@ -72,7 +85,14 @@ export default function DestinationNavigator({
             <Button
                 size="small"
                 className="naver"
-                onClick={() => handleNaver(isMobile, isIOS, navigatorProps)}
+                onClick={() => {
+                    trackClickEvent({
+                        category: "navigation",
+                        label: "naver_map",
+                        location: "main",
+                    });
+                    handleNaver(isMobile, isIOS, navigatorProps);
+                }}
             >
                 <Image
                     src="/icon_naver.png"

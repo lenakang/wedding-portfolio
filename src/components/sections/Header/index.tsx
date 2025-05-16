@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { MENU_LIST } from "@/constants/menu";
+import { shareKakaoWithTracking } from "@/lib/shareKakaoWithTracking";
 import Link from "next/link";
 import classNames from "classnames";
-import styles from "./styles.module.scss";
 import scroll from "@/utils/scroll";
 import Image from "next/image";
-import shareKakao from "@/lib/shareKakao";
+import styles from "./styles.module.scss";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -66,7 +66,11 @@ export default function Header() {
                         </li>
                     ))}
                     <li>
-                        <button onClick={shareKakao}>카카오톡 공유하기</button>
+                        <button
+                            onClick={() => shareKakaoWithTracking("header")}
+                        >
+                            카카오톡 공유하기
+                        </button>
                     </li>
                 </ul>
                 <div className={styles.menu_footer}>
