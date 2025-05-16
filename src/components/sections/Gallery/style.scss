@@ -145,12 +145,14 @@
 
             .swiper-zoom-container {
                 width: 100%;
-                aspect-ratio: 1;
-                position: relative;
-                overflow: hidden;
+                height: auto; // 이미지 비율 유지
+                text-align: center;
 
                 img {
+                    width: 100%;
+                    height: auto;
                     object-fit: cover;
+                    display: block;
                 }
             }
 
