@@ -1,10 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination, Zoom } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import "./style.scss";
-import "swiper/css/zoom";
 
 const images = Array.from(
     { length: 8 },
@@ -16,14 +15,11 @@ export default function Swiper2() {
         <>
             <Swiper
                 className="gallery__present_swiper"
-                modules={[Navigation, Autoplay, Pagination, Zoom]}
+                modules={[Navigation, Autoplay, Pagination]}
                 slidesPerView={1}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
-                }}
-                zoom={{
-                    maxRatio: 2,
                 }}
                 speed={800}
                 loop
@@ -40,15 +36,17 @@ export default function Swiper2() {
                 {images.map((src, idx) => (
                     <SwiperSlide key={`slide-${idx}`}>
                         <div className="swiper-zoom-container">
-                            <Image
-                                src={src}
-                                alt={`Slide ${idx + 1}`}
-                                width={738}
-                                height={738}
-                                loading={idx === 0 ? "eager" : "lazy"}
-                                priority={idx === 0}
-                                style={{ objectFit: "cover" }}
-                            />
+                            <div className="zoom-wrapper">
+                                <Image
+                                    src={src}
+                                    alt={`Slide ${idx + 1}`}
+                                    fill
+                                    sizes="100vw"
+                                    loading={idx === 0 ? "eager" : "lazy"}
+                                    priority={idx === 0}
+                                    style={{ objectFit: "cover" }}
+                                />
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

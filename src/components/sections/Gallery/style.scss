@@ -102,10 +102,6 @@
             border-bottom: 1px solid var(--foreground);
             padding-bottom: 1rem;
             margin-bottom: 2rem;
-
-            span {
-                font-weight: 500;
-            }
         }
 
         &__title {
@@ -145,14 +141,12 @@
 
             .swiper-zoom-container {
                 width: 100%;
-                height: auto; // 이미지 비율 유지
-                text-align: center;
+                aspect-ratio: 1;
+                position: relative;
+                overflow: hidden;
 
                 img {
-                    width: 100%;
-                    height: auto;
                     object-fit: cover;
-                    display: block;
                 }
             }
 
