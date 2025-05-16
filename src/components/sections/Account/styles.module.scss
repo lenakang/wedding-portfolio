@@ -16,6 +16,23 @@
 
         button {
             font-weight: 500;
+            gap: 0;
+
+            span {
+                position: relative;
+                font-weight: 600;
+            }
+        }
+
+        &__groom {
+            span {
+                color: #96951b;
+            }
+        }
+        &__bride {
+            span {
+                color: #d3a438;
+            }
         }
     }
 }

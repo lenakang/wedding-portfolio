@@ -24,11 +24,17 @@ export default function Index() {
             </div>
 
             <div className={styles.contact} data-aos="my-fade-up">
-                <Button onClick={() => setOpenType("groom")}>
-                    신랑측 보기
+                <Button
+                    onClick={() => setOpenType("groom")}
+                    className={styles.contact__groom}
+                >
+                    <span>신랑</span>측 보기
                 </Button>
-                <Button onClick={() => setOpenType("bride")}>
-                    신부측 보기
+                <Button
+                    onClick={() => setOpenType("bride")}
+                    className={styles.contact__bride}
+                >
+                    <span>신부</span>측 보기
                 </Button>
             </div>
 

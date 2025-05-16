@@ -16,7 +16,6 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./main.scss";
-import KakaoShareButton from "@/components/form/KakaoShareButton";
 
 export default function Main() {
     useEffect(() => {
@@ -45,7 +44,7 @@ export default function Main() {
                 <GuestBook />
                 <Thanks />
                 <footer className="footer">
-                    <KakaoShareButton />© 2025 Narae Kang. All rights reserved.
+                    © 2025 Narae Kang. All rights reserved.
                 </footer>
             </main>
         </>

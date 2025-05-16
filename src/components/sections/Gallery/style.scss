@@ -102,6 +102,10 @@
             border-bottom: 1px solid var(--foreground);
             padding-bottom: 1rem;
             margin-bottom: 2rem;
+
+            span {
+                font-weight: 500;
+            }
         }
 
         &__title {

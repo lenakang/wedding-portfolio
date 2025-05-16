@@ -10,7 +10,6 @@ export default function KakaoShareButton() {
     }, []);
 
     const handleShare = () => {
-        console.log("hi");
         if (!window.Kakao.Share) return;
 
         window.Kakao.Share.sendDefault({

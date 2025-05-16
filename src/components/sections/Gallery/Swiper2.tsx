@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination, Zoom } from "swiper/modules";
 import Image from "next/image";
 import "./style.scss";
+import "swiper/css/zoom";
 
 const images = Array.from(
     { length: 8 },

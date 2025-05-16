@@ -30,7 +30,9 @@ export default function Index() {
             <Swiper1 />
             <div className="gallery__scroll-anchor" id="gallery" />
             <div className="gallery__present" data-aos="my-fade-up">
-                <p>The present / 현재</p>
+                <p>
+                    The present / <span>현재</span>
+                </p>
                 <div className="gallery__present__title">
                     <span className="name">Narae & Daeseung</span>
                     <div className="controls">
