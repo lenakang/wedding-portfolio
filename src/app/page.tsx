@@ -17,6 +17,7 @@ import {
     Thanks,
 } from "@/components/sections";
 import Script from "next/script";
+import Head from "next/head";
 
 export default function Home() {
     useEffect(() => {
@@ -48,6 +49,20 @@ export default function Home() {
                     }
                 }}
             />
+            <Head>
+                <title>나래❤️대승 결혼합니다.</title>
+                <meta property="og:title" content="나래❤️대승 결혼합니다." />
+                <meta
+                    property="og:description"
+                    content="6월 28일 (토) 오전 11시 / 더컨벤션 신사"
+                />
+                <meta property="og:image" content="/og_img.jpg" />
+                <meta
+                    property="og:url"
+                    content="https://wedding-iota-seven.vercel.app/"
+                />
+                <meta property="og:type" content="website" />
+            </Head>
             <main className="home">
                 <header className="header">
                     <div>
