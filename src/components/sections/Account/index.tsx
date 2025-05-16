@@ -12,7 +12,11 @@ export default function Index() {
     return (
         <section className={styles.account}>
             <div className={styles.account__person}>
-                <h3 data-aos="my-fade-up">마음 전하실 곳</h3>
+                <div className="title-korean" data-aos="my-fade-up">
+                    <span className="tag">Information</span>
+                    <h3>마음 전하실 곳</h3>
+                </div>
+
                 <p data-aos="my-fade-up">
                     축하의 마음을 전하고 싶지만 <br />
                     직접 찾아오시기 어려운 분들을 위해, <br />

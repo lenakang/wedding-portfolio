@@ -7,12 +7,15 @@ import "./styles.scss";
 
 const lat = 37.5194582292788;
 const lng = 127.019118804537;
-const name = "신사스퀘어";
+const name = "더컨벤션 신사";
 
 export default function Index() {
     return (
         <div id="sectionMap" className="map">
-            <h3 data-aos="my-fade-up">오시는 길</h3>
+            <div className="title-korean" data-aos="my-fade-up">
+                <span className="tag">Map</span>
+                <h3>오시는 길</h3>
+            </div>
             <div className="info" data-aos="my-fade-up">
                 <h4>
                     더컨벤션 신사

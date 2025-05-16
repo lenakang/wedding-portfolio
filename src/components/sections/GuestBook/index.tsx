@@ -75,12 +75,12 @@ export default function GuestBook() {
 
                 <List />
                 <span className={styles.noteCount}>
-                    {guests.length} / {MAX_GUESTS}
+                    <strong>{guests.length}개</strong>의 쪽지가 붙어있습니다.
                 </span>
                 {hasWritten ? (
                     <div className={styles.contact}>
                         <p>
-                            감사합니다.
+                            작성해주셔서 감사합니다.
                             {guestCount >= MAX_GUESTS && (
                                 <p className={styles.closed}>
                                     방명록이 마감되었습니다 🤍

@@ -32,12 +32,11 @@
         .noteCount {
             display: flex;
             justify-content: center;
-            font-family: "Hanken Grotesk", sans-serif;
-            color: #555;
+            color: var(--foreground);
+            font-family: "Prentendard";
             letter-spacing: -0.1rem;
             margin-top: 0.5rem;
             font-size: 1.2rem;
-            font-weight: 600;
             z-index: 2;
         }
         .contact {

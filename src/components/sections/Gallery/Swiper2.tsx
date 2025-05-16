@@ -42,9 +42,8 @@ export default function Swiper2() {
                                     alt={`Slide ${idx + 1}`}
                                     fill
                                     sizes="100vw"
-                                    loading={idx === 0 ? "eager" : "lazy"}
-                                    priority={idx === 0}
-                                    style={{ objectFit: "cover" }}
+                                    loading={idx <= 2 ? "eager" : "lazy"}
+                                    priority={idx <= 2}
                                 />
                             </div>
                         </div>

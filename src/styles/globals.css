@@ -72,6 +72,10 @@ h3 {
     font-weight: 500;
     line-height: 1.6;
 }
+.title-korean h3 {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
 
 .hanken {
     font-family: "Hanken Grotesk", sans-serif;
