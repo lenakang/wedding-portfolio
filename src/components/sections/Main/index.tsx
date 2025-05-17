@@ -19,6 +19,18 @@ import "./main.scss";
 import Script from "next/script";
 import { MENU } from "@/constants/menu";
 
+const SECTION_IDS = [
+    "about",
+    "invite",
+    "people",
+    "calendar",
+    "gallery",
+    "map",
+    "account",
+    "guestbook",
+    "thanks",
+];
+
 export default function Main() {
     const [isTop, setIsTop] = useState(true);
     useEffect(() => {
@@ -36,6 +48,32 @@ export default function Main() {
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        if (typeof window === "undefined" || !window.gtag) return;
+
+        SECTION_IDS.forEach((id) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            let hasSent = false;
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting && !hasSent) {
+                        hasSent = true;
+                        window.gtag("event", "section_view", {
+                            section_name: id,
+                            page_location: window.location.href,
+                        });
+                    }
+                },
+                { threshold: 0.5 }
+            );
+
+            observer.observe(el);
+        });
     }, []);
 
     return (

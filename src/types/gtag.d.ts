@@ -12,9 +12,9 @@ declare global {
         | "contact"
         | "contact_detail"
         | "navigation"
-        | "guestbook"; // ✅ 추가
+        | "guestbook";
 
-    type ClickLocation = "main" | "popup" | "footer" | "header" | "form"; // ✅ 추가
+    type ClickLocation = "main" | "popup" | "footer" | "header" | "form";
 
     interface GenericClickEventParams {
         event_category: ClickCategory;
@@ -34,6 +34,11 @@ declare global {
             command: "event",
             eventName: "click",
             params: GenericClickEventParams
+        ): void;
+        (
+            command: "event",
+            eventName: string,
+            params?: Record<string, unknown>
         ): void;
     }
 }
