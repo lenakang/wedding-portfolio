@@ -43,8 +43,8 @@ export default function Swiper2() {
                                     alt={`Slide ${idx + 1}`}
                                     fill
                                     sizes="(max-width: 768px) 100vw, 768px"
-                                    loading={idx <= 2 ? "eager" : "lazy"}
-                                    priority={idx <= 2}
+                                    loading="eager"
+                                    priority
                                 />
                             </div>
                         </div>
