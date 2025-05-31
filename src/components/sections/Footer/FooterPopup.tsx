@@ -1,10 +1,11 @@
 "use client";
 
-import { SHOULD_CHANGE } from "@/constants/information";
 import Popup from "@/components/common/Popup";
+import Image from "next/image";
+import { SHOULD_CHANGE } from "@/constants/information";
 import { shareKakaoWithTracking } from "@/lib/shareKakaoWithTracking";
-import styles from "./styles.module.scss";
 import { trackClickEvent } from "@/utils/trackClickEvent";
+import styles from "./styles.module.scss";
 
 interface FooterPopup {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,6 +23,16 @@ export default function FooterPopup({ setIsOpen }: FooterPopup) {
                     onClick={() => shareKakaoWithTracking("footer")}
                     className={styles.share_kakao}
                 >
+                    <i>
+                        <Image
+                            src="/kakaotalk_sharing_btn_medium.png"
+                            width={40}
+                            height={40}
+                            loading="eager"
+                            priority
+                            alt="카카오톡 공유"
+                        />
+                    </i>
                     카카오톡 <br />
                     공유하기
                 </button>

@@ -39,14 +39,6 @@
             &.share_kakao {
                 position: relative;
                 border-right: 1px solid #b1ac88;
-
-                &::before {
-                    content: "";
-                    width: 4rem;
-                    height: 4rem;
-                    background: url("/kakaotalk_sharing_btn_medium.png") center
-                        center / contain no-repeat;
-                }
             }
 
             &.share_url {
