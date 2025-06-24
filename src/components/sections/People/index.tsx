@@ -30,7 +30,7 @@ export default function Index() {
             <div className={styles.people__person}>
                 <div className={styles.people__person_img}>
                     <Image
-                        src="/people_bride.jpg"
+                        src="/people_bride.webp"
                         fill
                         alt="bride"
                         sizes="(max-width: 768px) 50vw, 768px"
@@ -56,7 +56,7 @@ export default function Index() {
             <div className={`${styles.people__person} ${styles.reverse}`}>
                 <div className={styles.people__person_img}>
                     <Image
-                        src="/people_groom.jpg"
+                        src="/people_groom.webp"
                         fill
                         alt="groom"
                         sizes="(max-width: 768px) 50vw, 768px"

@@ -6,7 +6,7 @@ export default function index() {
         <section className={styles.hero}>
             <div className={styles.hero__box}>
                 <Image
-                    src="/hero.jpg"
+                    src="/hero.webp"
                     sizes="(max-width: 768px) 100vw, 768px"
                     alt="Couple"
                     fill

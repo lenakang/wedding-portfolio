@@ -224,7 +224,7 @@ button {
 }
 
 .read-only-calendar .rdp-selected {
-    background: url("/icon_heart.png") center 0 / 34px auto no-repeat;
+    background: url("/icon_heart.png") center 0 / 35px auto no-repeat;
 }
 .read-only-calendar .rdp-selected button {
     border: none;
@@ -237,6 +237,11 @@ button {
 .read-only-calendar .rdp-weekday:nth-child(7) {
     color: var(--highlight2);
     font-weight: 600;
+}
+.read-only-calendar .rdp-today:not(.rdp-outside) {
+    color: var(--highlight2);
+    font-weight: 500;
+    text-decoration: underline;
 }
 
 input,
