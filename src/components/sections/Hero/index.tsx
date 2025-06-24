@@ -19,7 +19,7 @@ export default function index() {
                 alt="logo"
                 width={1024}
                 height={1024}
-                priority
+                loading="lazy"
             />
         </section>
     );
