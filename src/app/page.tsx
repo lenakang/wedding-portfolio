@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: `${SITE_URL}/og_img.jpg`,
+                url: "/og_img.jpg",
                 width: 800,
                 height: 400,
                 alt: WEDDING_TITLE,
