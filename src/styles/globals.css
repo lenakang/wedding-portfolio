@@ -207,11 +207,11 @@ button {
     font-weight: 400;
 }
 
-.read-only-calendar .rdp-day.rdp-selected::after {
-    content: "11시";
+.rdp-selected-hours {
+    display: inline-block;
     font-size: 1.2rem;
     color: var(--highlight2);
-    font-weight: 600;
+    font-weight: 500;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -224,7 +224,7 @@ button {
 }
 
 .read-only-calendar .rdp-selected {
-    background: url("/icon_heart.png") center 0 / 35px auto no-repeat;
+    background: url("/icon_heart.png") center 1px / 34px auto no-repeat;
 }
 .read-only-calendar .rdp-selected button {
     border: none;

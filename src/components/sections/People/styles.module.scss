@@ -1,74 +1,74 @@
 .people {
-  padding-bottom: 5rem;
+    padding-bottom: 5rem;
 
-  &__person {
-    display: flex;
+    &__person {
+        display: flex;
 
-    > div {
-      flex: 1 1 50%;
-    }
-
-    &_img {
-      position: relative;
-      aspect-ratio: 3/4;
-
-      img {
-        object-fit: cover;
-      }
-    }
-
-    &_desc {
-      font-family: "Pretendard";
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-
-      .people__person_inner {
-        width: fit-content;
-        margin: 0 auto;
-      }
-
-      &_name {
-        line-height: 1.4;
-        font-size: 1.2rem;
-
-        span {
-          font-size: 2rem;
+        > div {
+            flex: 1 1 50%;
         }
 
-        svg {
-          width: 1.3rem;
+        &_img {
+            position: relative;
+            aspect-ratio: 3/4;
+
+            img {
+                object-fit: cover;
+            }
         }
-      }
 
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0;
+        &_desc {
+            font-family: "Pretendard";
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
 
-        li {
-          position: relative;
-          font-size: 1.2rem;
+            .people__person_inner {
+                width: fit-content;
+                margin: 0 auto;
+            }
 
-          &::before {
-            content: "# ";
-          }
+            &_name {
+                line-height: 1.4;
+                font-size: 1.2rem;
+
+                span {
+                    font-size: 2rem;
+                }
+
+                svg {
+                    width: 1.3rem;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 2rem 0;
+
+                li {
+                    position: relative;
+                    font-size: 1.2rem;
+
+                    &::before {
+                        content: "# ";
+                    }
+                }
+            }
         }
-      }
+
+        &.reverse {
+            flex-direction: row-reverse;
+
+            .people__person_desc {
+                text-align: right;
+            }
+        }
     }
 
-    &.reverse {
-      flex-direction: row-reverse;
-
-      .people__person_desc {
-        text-align: right;
-      }
+    .contact {
+        button {
+            margin: 6rem auto 0;
+        }
     }
-  }
-
-  .contact {
-    button {
-      margin: 6rem auto 0;
-    }
-  }
 }

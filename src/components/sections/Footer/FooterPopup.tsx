@@ -2,9 +2,9 @@
 
 import Popup from "@/components/common/Popup";
 import Image from "next/image";
-import { SHOULD_CHANGE } from "@/constants/information";
 import { shareKakaoWithTracking } from "@/lib/shareKakaoWithTracking";
 import { trackClickEvent } from "@/utils/trackClickEvent";
+import { SITE_URL } from "@/constants/info";
 import styles from "./styles.module.scss";
 
 interface FooterPopup {
@@ -39,7 +39,7 @@ export default function FooterPopup({ setIsOpen }: FooterPopup) {
                 <button
                     className={styles.share_url}
                     onClick={() => {
-                        navigator.clipboard.writeText(SHOULD_CHANGE.URL);
+                        navigator.clipboard.writeText(SITE_URL);
                         alert("URL이 복사되었습니다.");
                         trackClickEvent({
                             category: "share",

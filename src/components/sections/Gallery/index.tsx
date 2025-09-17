@@ -24,7 +24,7 @@ export default function Index() {
                     The present / <span>현재</span>
                 </p>
                 <div className="gallery__present__title">
-                    <span className="name">Narae & Daeseung</span>
+                    <span className="name">Narae & Gildong</span>
                     <div className="controls">
                         <button className="prev" />
                         <button className="next" />

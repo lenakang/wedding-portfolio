@@ -6,8 +6,8 @@ import Image from "next/image";
 import "./style.scss";
 
 const images = Array.from(
-    { length: 8 },
-    (_, i) => `/gallery_swiper_${i + 1}.jpg`
+    { length: 4 },
+    (_, i) => `/gallery_swiper_${i + 1}.webp`
 );
 
 export default function Swiper2() {

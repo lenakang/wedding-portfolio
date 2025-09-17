@@ -2,13 +2,14 @@
 
 import { useEffect } from "react";
 import { MENU } from "@/constants/menu";
+import { WEDDING_DATE, WEDDING_HALL, WEDDING_VENUE } from "@/constants/info";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Typewriter from "@/components/sections/About/Typewriter/Typewriter";
 import scroll from "@/utils/scroll";
 import styles from "./styles.module.scss";
 
-gsap.registerPlugin(ScrollTrigger); // ✅ ScrollTrigger 등록 (경고 제거)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
     useEffect(() => {
@@ -40,7 +41,7 @@ export default function AboutSection() {
             },
         });
 
-        const interval = 0.6; // 간격
+        const interval = 0.6;
 
         steps.forEach((step, index) => {
             tl.to(
@@ -119,7 +120,7 @@ export default function AboutSection() {
                     <br /> about
                 </span>
                 <div className={styles.about__date}>
-                    06—28 <span className={styles.about__icon} />
+                    12—25 <span className={styles.about__icon} />
                 </div>
             </div>
             <div className={styles.about__middle}>
@@ -245,10 +246,10 @@ export default function AboutSection() {
             <div>
                 <div className={styles.about__location}>
                     <div data-aos="my-fade-up">
-                        더컨벤션 신사
-                        <br /> 4층 그랜드볼룸홀
+                        {WEDDING_VENUE}
+                        <br /> {WEDDING_HALL}
                         <br />
-                        <span>2025년 6월 28일 11시</span>
+                        <span>{WEDDING_DATE}</span>
                     </div>
 
                     <button

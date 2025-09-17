@@ -1,3 +1,4 @@
+import { BRIDE_NAME, GROOM_NAME } from "@/constants/info";
 import styles from "./styles.module.scss";
 
 export default function index() {
@@ -9,7 +10,9 @@ export default function index() {
                 이 마음 잊지 않고 행복하게 살아가겠습니다.
                 <br />
                 <br />
-                <span>신랑 위대승 · 신부 강나래</span>
+                <span>
+                    신랑 {GROOM_NAME} · 신부 {BRIDE_NAME}
+                </span>
             </p>
         </section>
     );

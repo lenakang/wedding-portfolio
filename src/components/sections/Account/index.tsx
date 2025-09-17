@@ -3,12 +3,24 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/form";
-import Popup from "./Popup";
-import { groomAccountList, brideAccountList } from "@/data/contactList";
 import { MENU } from "@/constants/menu";
+import { PEOPLE } from "@/constants/people";
+import Popup from "./Popup";
 
 export default function Index() {
     const [openType, setOpenType] = useState<"groom" | "bride" | null>(null);
+
+    const groomList = [
+        PEOPLE.groom.self,
+        PEOPLE.groom.father,
+        PEOPLE.groom.mother,
+    ].filter((person) => person.account);
+
+    const brideList = [
+        PEOPLE.bride.self,
+        PEOPLE.bride.father,
+        PEOPLE.bride.mother,
+    ].filter((person) => person.account);
 
     return (
         <section id={MENU.ACCOUNT} className={styles.account}>
@@ -46,11 +58,7 @@ export default function Index() {
             {openType && (
                 <Popup
                     setIsOpen={() => setOpenType(null)}
-                    list={
-                        openType === "groom"
-                            ? groomAccountList
-                            : brideAccountList
-                    }
+                    list={openType === "groom" ? groomList : brideList}
                 />
             )}
         </section>

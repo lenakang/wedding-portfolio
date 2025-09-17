@@ -1,11 +1,20 @@
 import Popup from "@/components/common/Popup";
 import styles from "@/components/common/Popup/styles.module.scss";
-import { contactList } from "@/data/contactList";
+import { PEOPLE } from "@/constants/people";
 import { trackClickEvent } from "@/utils/trackClickEvent";
 
 interface ContactPopupProps {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+const contactList = [
+    PEOPLE.groom.self,
+    PEOPLE.bride.self,
+    PEOPLE.groom.father,
+    PEOPLE.bride.father,
+    PEOPLE.groom.mother,
+    PEOPLE.bride.mother,
+];
 
 export default function ContactPopup({ setIsOpen }: ContactPopupProps) {
     return (
@@ -24,7 +33,7 @@ export default function ContactPopup({ setIsOpen }: ContactPopupProps) {
                             {person.name}
                         </span>
                         <a
-                            href={`tel:${person.number}`}
+                            href={`tel:${person.phone}`}
                             onClick={() => {
                                 trackClickEvent({
                                     category: "contact_detail",
@@ -39,7 +48,7 @@ export default function ContactPopup({ setIsOpen }: ContactPopupProps) {
                             전화하기
                         </a>
                         <a
-                            href={`sms:${person.number}`}
+                            href={`sms:${person.phone}`}
                             onClick={() => {
                                 trackClickEvent({
                                     category: "contact_detail",

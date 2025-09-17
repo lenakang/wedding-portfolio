@@ -4,26 +4,19 @@ import Image from "next/image";
 import Popup from "./Popup";
 import { useState } from "react";
 import { Button } from "@/components/form";
-import { SHOULD_CHANGE } from "@/constants/information";
+import {
+    BRIDE_FATHER,
+    BRIDE_MOTHER,
+    BRIDE_NAME,
+    GROOM_FATHER,
+    GROOM_MOTHER,
+    GROOM_NAME,
+} from "@/constants/info";
+import { PEOPLE } from "@/constants/people";
 import styles from "./styles.module.scss";
 
 export default function Index() {
     const [isOpen, setIsOpen] = useState(false);
-
-    const desc1 = [
-        "1992",
-        "INFP",
-        "수다쟁이",
-        "웃음이 많음",
-        "크리에이터 드리머",
-    ];
-    const desc2 = [
-        "1989",
-        "ISTJ",
-        "최선을 다해 쉬자",
-        "잘 들어주는 사람",
-        "차분한 직진러",
-    ];
 
     return (
         <section className={styles.people}>
@@ -42,14 +35,16 @@ export default function Index() {
                         data-aos="my-fade-up"
                     >
                         <div className={styles.people__person_desc_name}>
-                            신부 <span>강나래</span>
+                            신부 <span>{BRIDE_NAME}</span>
                         </div>
                         <ul>
-                            {desc1.map((word, i) => (
+                            {PEOPLE.bride.self.description?.map((word, i) => (
                                 <li key={i}>{word}</li>
                             ))}
                         </ul>
-                        <div>강인용 · {SHOULD_CHANGE.NAME}의 장녀</div>
+                        <div>
+                            {BRIDE_FATHER} · {BRIDE_MOTHER}의 장녀
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,14 +63,16 @@ export default function Index() {
                         data-aos="my-fade-up"
                     >
                         <div className={styles.people__person_desc_name}>
-                            신랑 <span>위대승</span>
+                            신랑 <span>{GROOM_NAME}</span>
                         </div>
                         <ul>
-                            {desc2.map((word, i) => (
+                            {PEOPLE.groom.self.description?.map((word, i) => (
                                 <li key={i}>{word}</li>
                             ))}
                         </ul>
-                        <div>위재민 · 하선영의 장남</div>
+                        <div>
+                            {GROOM_FATHER} · {GROOM_MOTHER}의 장남
+                        </div>
                     </div>
                 </div>
             </div>

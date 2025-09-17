@@ -1,14 +1,15 @@
 "use client";
 
 import { MENU } from "@/constants/menu";
+import { WEDDING_HALL, WEDDING_VENUE } from "@/constants/info";
 import CopyToClipboardButton from "./CopyToClipboardButton";
 import DestinationNavigator from "./DestinationNavigator";
 import NaverMap from "./NaverMap";
 import "./styles.scss";
 
-const lat = 37.5194582292788;
-const lng = 127.019118804537;
-const name = "더컨벤션 신사";
+const lat = 37.5458066;
+const lng = 126.9946864;
+const name = WEDDING_VENUE;
 
 export default function Index() {
     return (
@@ -19,10 +20,10 @@ export default function Index() {
             </div>
             <div className="info" data-aos="my-fade-up">
                 <h4>
-                    더컨벤션 신사
-                    <span>4층 그랜드볼룸홀</span>
+                    {WEDDING_VENUE}
+                    <span>{WEDDING_HALL}</span>
                 </h4>
-                <p>서울 강남구 강남대로 652</p>
+                <p>서울 용산구 소월로 322</p>
                 <div className="actions">
                     <CopyToClipboardButton />
                     <a href="tel:02-6081-5000" className="underline">
@@ -31,7 +32,7 @@ export default function Index() {
                 </div>
             </div>
             <div className="map-info" data-aos="my-fade-up">
-                <NaverMap lat={lat} lng={lng} label="더컨벤션 신사" />
+                <NaverMap lat={lat} lng={lng} label={WEDDING_VENUE} />
                 <DestinationNavigator lat={lat} lng={lng} name={name} />
             </div>
             <div className="transportation" data-aos="my-fade-up">
@@ -45,7 +46,7 @@ export default function Index() {
                         </svg>
                         버스
                     </dt>
-                    <dd>신사역 6번 출구 하차 (도보 5분)</dd>
+                    <dd>하얏트호텔 하차 (도보 3분)</dd>
                 </dl>
                 <dl>
                     <dt>
@@ -57,7 +58,7 @@ export default function Index() {
                         </svg>
                         지하철
                     </dt>
-                    <dd>3호선, 신분당선 신사역 6번 출구 (도보 5분)</dd>
+                    <dd>6호선 한강진역 1번 출구 (도보 13분)</dd>
                 </dl>
                 <dl>
                     <dt>
@@ -69,7 +70,7 @@ export default function Index() {
                         </svg>
                         자차
                     </dt>
-                    <dd>서울 강남구 강남대로 652 신사스퀘어</dd>
+                    <dd>서울 용산구 소월로 322 그랜드 하얏트 서울</dd>
                 </dl>
             </div>
         </section>
