@@ -57,16 +57,19 @@
     font-family: "Hanken Grotesk";
     src: url("/fonts/HankenGrotesk-SemiBold.woff") format("opentype");
     font-weight: 600;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Hanken Grotesk";
     src: url("/fonts/HankenGrotesk-Medium.woff") format("opentype");
     font-weight: 500;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Hanken Grotesk";
     src: url("/fonts/HankenGrotesk-Regular.woff") format("opentype");
     font-weight: 400;
+    font-display: swap;
 }
