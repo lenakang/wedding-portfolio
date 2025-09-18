@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FooterPopup from "./FooterPopup";
 import styles from "./styles.module.scss";
 
 export default function Footer() {
+    useEffect(() => {
+        const img = new Image();
+        img.src = "/kakaotalk_sharing_btn_medium.png";
+    }, []);
+
     const [isOpen, setIsOpen] = useState(false);
 
     return (
