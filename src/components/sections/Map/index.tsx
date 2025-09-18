@@ -7,8 +7,8 @@ import DestinationNavigator from "./DestinationNavigator";
 import NaverMap from "./NaverMap";
 import "./styles.scss";
 
-const lat = 37.5458066;
-const lng = 126.9946864;
+const lat = 37.54051;
+const lng = 126.99683;
 const name = WEDDING_VENUE;
 
 export default function Index() {
@@ -25,7 +25,7 @@ export default function Index() {
                 </h4>
                 <p>서울 용산구 소월로 322</p>
                 <div className="actions">
-                    <CopyToClipboardButton />
+                    <CopyToClipboardButton address="서울 용산구 소월로 322" />
                     <a href="tel:02-6081-5000" className="underline">
                         전화하기
                     </a>
