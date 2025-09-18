@@ -7,8 +7,8 @@ import DestinationNavigator from "./DestinationNavigator";
 import NaverMap from "./NaverMap";
 import "./styles.scss";
 
-const lat = 37.539175;
-const lng = 126.995852;
+const lat = 37.5395;
+const lng = 126.99745;
 const name = WEDDING_VENUE;
 
 export default function Index() {
