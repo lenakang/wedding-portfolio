@@ -51,7 +51,7 @@ export const handleNaver = (
     { lat, lng, name }: NavigatorProps,
 ) => {
     const appUrl = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
-        name,
+        name + " ",
     )}&appname=wedding-portfolio-brown.vercel.app`;
     const fallbackUrl = isIOS
         ? "https://apps.apple.com/kr/app/id311867728"

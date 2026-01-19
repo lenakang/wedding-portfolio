@@ -7,9 +7,9 @@ import DestinationNavigator from "./DestinationNavigator";
 import NaverMap from "./NaverMap";
 import "./styles.scss";
 
-const lat = 37.53927;
-const lng = 126.99735;
-const name = "그랜드 하얏트 서울";
+const lat = 37.5391;
+const lng = 126.9975;
+const name = "그랜드 하얏트 서울 ";
 
 export default function Index() {
     return (
