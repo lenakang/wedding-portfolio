@@ -50,10 +50,12 @@ export const handleNaver = (
     isIOS: boolean,
     { name }: NavigatorProps,
 ) => {
-    const appUrl = `nmap://search?query=${encodeURIComponent(
-        name,
-    )}&appname=wedding-portfolio-brown.vercel.app`;
+    if (!isMobile) {
+        alert("이 기능은 모바일 기기에서만 사용할 수 있습니다.");
+        return;
+    }
 
+    const appUrl = `nmap://search?query=${encodeURIComponent(name)}`;
     const fallbackUrl = isIOS
         ? "https://apps.apple.com/kr/app/id311867728"
         : "https://play.google.com/store/apps/details?id=com.nhn.android.nmap";
