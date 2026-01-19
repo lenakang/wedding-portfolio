@@ -48,14 +48,16 @@ export const handleTmap = (
 export const handleNaver = (
     isMobile: boolean,
     isIOS: boolean,
-    { lat, lng, name }: NavigatorProps,
+    { name }: NavigatorProps,
 ) => {
-    const appUrl = `nmap://route/car?dlat=${lat}&dlng=${lng}&dname=${encodeURIComponent(
+    const appUrl = `nmap://search?query=${encodeURIComponent(
         name,
-    )}&appname=com.example.app`;
+    )}&appname=wedding-portfolio-brown.vercel.app`;
+
     const fallbackUrl = isIOS
         ? "https://apps.apple.com/kr/app/id311867728"
         : "https://play.google.com/store/apps/details?id=com.nhn.android.nmap";
+
     openLink(isMobile, appUrl, fallbackUrl);
 };
 
