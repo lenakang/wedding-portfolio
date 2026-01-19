@@ -47,7 +47,7 @@ export default function DestinationNavigator({
                     trackClickEvent({
                         category: "navigation",
                         label: "tmap",
-                        location: "main", // 또는 "popup" 등 위치에 맞게
+                        location: "main",
                     });
                     handleTmap(isMobile, isIOS, navigatorProps);
                 }}

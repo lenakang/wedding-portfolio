@@ -9,7 +9,7 @@ import "./styles.scss";
 
 const lat = 37.5395;
 const lng = 126.99745;
-const name = WEDDING_VENUE;
+const name = "그랜드 하얏트 서울";
 
 export default function Index() {
     return (
